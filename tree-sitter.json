@@ -1,0 +1,49 @@
+{
+  "$schema": "https://tree-sitter.github.io/tree-sitter/assets/schemas/config.schema.json",
+  "grammars": [
+    {
+      "name": "cpp",
+      "camelcase": "Cpp",
+      "title": "C++",
+      "scope": "source.cpp",
+      "file-types": [
+        "cc",
+        "C",
+        "hh",
+        "H",
+        "cpp",
+        "cxx",
+        "c++",
+        "hpp",
+        "h",
+        "hxx",
+        "h++"
+      ],
+      "injection-regex": "^cpp$",
+      "class-name": "TreeSitterCpp"
+    }
+  ],
+  "metadata": {
+    "version": "0.1.0",
+    "license": "MIT",
+    "description": "C++ Grammar designed to be easy to query.",
+    "authors": [
+      {
+        "name": "Quelfth",
+        "email": "quelfth@gmail.com"
+      }
+    ],
+    "links": {
+      "repository": "https://github.com/Quelfth/tree-sitter-cpp"
+    }
+  },
+  "bindings": {
+    "c": true,
+    "go": true,
+    "node": true,
+    "python": true,
+    "rust": true,
+    "swift": true,
+    "zig": false
+  }
+}
