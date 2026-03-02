@@ -10,6 +10,54 @@
 module.exports = grammar({
     name: "cpp",
 
+    word: $ => $.identifier,
+
+    precedences: $ => [
+        [
+            'postfix',
+            'prefix',
+            'pointer-to-member',
+            'multiplicative',
+            'additive',
+            'shift',
+            'comparison',
+            'relational',
+            'equality',
+            'bit-and',
+            'bit-xor',
+            'bit-or',
+            'and',
+            'or',
+            'assignment',
+        ],
+        [
+            'general_name',
+            'specific_name',
+        ],
+        [
+            'proper_scope',
+            'lone_scope',
+        ],
+        [
+            'proper-type',
+            'type-modifier',
+        ],
+    ],
+
+    conflicts: $ => [
+        [$._function_declarator, $._variable_declarator],
+        [$._template_argument, $.binary_expression],
+        [$.short_type, $.primitive_type_modifier],
+        [$.long_type, $.primitive_type_modifier],
+        [$.signed_type, $.primitive_type_modifier],
+        [$.unsigned_type, $.primitive_type_modifier],
+        [$._type_root, $._weak_type],
+        [$.scoped_name],
+        [$._simple_type_modifier, $._weak_type],
+        [$.cast_expression, $.sizeof_type_expression],
+        [$.template_type_name, $.scoped_type_name],
+    ],
+
     rules: {
         translation_unit: $ => repeat(
             $._declaration,
@@ -43,14 +91,14 @@ module.exports = grammar({
             ),
         ),
 
-        _function_declarator: $ => seq(
+        _function_declarator: $ => prec.left(seq(
             repeat($._any_pointer_modifier),
             choice(seq(optional($.scope), $.name), $.parenthesized_function_declarator),
             repeat(choice(
                 $.function_type_modifier,
                 $.array_type_modifier,
             )),
-        ),
+        )),
 
         parenthesized_function_declarator: $ => seq("(", $._function_declarator, ")"),
 
@@ -86,20 +134,13 @@ module.exports = grammar({
 
         _empty_declaration: $ => seq(repeat($._attributes), ";"),
 
-        _type_postfix: $ => seq(
-            repeat($._any_pointer_modifier),
-            optional($.parenthesized_type_postfix),
-        ),
-
-        parenthesized_type_postfix: $ => seq("(", $._type_postfix, ")"),
-        
-        _declaration_type_modifiers: $ => seq(
+        _declaration_type_modifiers: $ => prec.left(seq(
             repeat($._attributes),
             repeat($._declaration_modifier),
             $._type_modifier,
             repeat(choice($._declaration_modifier, $._type_modifier)),
             repeat($._attributes),
-        ),
+        )),
 
         _template_modifier: $ => seq(
             "template",
@@ -117,6 +158,17 @@ module.exports = grammar({
             $.type_parameter,
         ),
 
+        template_arguments: $ => seq(
+            "<",
+            optional(seq($._template_argument, repeat(seq(",", $._template_argument)))),
+            ">",
+        ),
+
+        _template_argument: $ => choice(
+            $._type,
+            $._expr,
+        ),
+
         type_parameter: $ => choice(
             optional($._template_modifier),
             choice("class", "typename"), optional("..."),
@@ -124,18 +176,26 @@ module.exports = grammar({
             optional(seq("=", $._type)),
         ),
 
-        _parameters_with_modifiers: $ => seq(
+        _parameters_with_modifiers: $ => prec.right(seq(
             $.parameters,
             repeat($._attributes),
             repeat($._const_or_volatile_modifier),
             repeat($._any_reference_modifier),
-        ),
+        )),
 
-        parameters: $ => seq("(", ")"),
+        parameters: $ => seq("(", optional(seq($.parameter, repeat(seq(",", $.parameter)))), ")"),
+
+        parameter: $ => choice(
+            seq(
+                $._type_root,
+                $._variable_declarator,
+            ),
+            $._type,
+        ),
 
         trailing_return_type: $ => seq("->", $._type),
 
-        _initializers: $ => seq($._initializer, optional("..."), repeat(",", $._initializer, optional("..."))),
+        _initializers: $ => seq($._initializer, optional("..."), repeat(seq(",", $._initializer, optional("...")))),
 
         _initializer: $ => choice(
             $.initializer_list,
@@ -182,7 +242,7 @@ module.exports = grammar({
 
         empty_statement: $ => ";",
 
-        if_statement: $ => seq(
+        if_statement: $ => prec.right(seq(
             "if", "(",
             $._expr,
             ")",
@@ -191,7 +251,7 @@ module.exports = grammar({
                 "else",
                 $._statement,
             )),
-        ),
+        )),
 
         switch_statement: $ => seq(
             "switch", "(",
@@ -216,7 +276,7 @@ module.exports = grammar({
             ),
         ),
 
-        for_statement: $ => choice(
+        for_statement: $ => seq(
             "for", "(",
             choice(
                 seq(
@@ -228,7 +288,7 @@ module.exports = grammar({
                     optional($._expr),
                 ),
                 seq(
-                    $._declar_modifiersation_type,
+                    $._declaration_type_modifiers,
                     $._variable_declarator,
                     ":",
                     choice(
@@ -254,13 +314,15 @@ module.exports = grammar({
             "try", $._lbrace,
             repeat($._statement),
             $._rbrace,
-            repeat(
+            repeat(seq(
                 "catch", "(",
                 choice(
                     seq(
                         repeat($._attributes),
-                        $._declar_modifiersation_type,
-                        choice($._variable_declarator, $._type_postfix),
+                        choice(
+                            seq($._type_root, $._variable_declarator),
+                            $._type,
+                        ),
                     ),
                     "...",
                 ),
@@ -268,14 +330,15 @@ module.exports = grammar({
                 $._lbrace,
                 repeat($._statement),
                 $._rbrace,
-            ),
+            )),
         ),
 
-        _expr_or_init: $ => choice($._expr, $.initializer_list),
+        _expr_or_init: $ => prec.left(choice($._expr, $.initializer_list)),
 
         _expr: $ => choice(
             $.binary_expression,
             $.assignment_expression,
+            $.conditional_expression,
             $.cast_expression,
             $.pre_unary_expression,
             $.post_unary_expression,
@@ -284,37 +347,41 @@ module.exports = grammar({
             $.sizeof_variadic_expression,
             $.alignof_expression,
             $.noexcept_expression,
-            $.new_exprssion,
+            $.new_expression,
             $.delete_expression,
             $.index_expression,
+            $.call_expression,
+            $.constructor_expression,
+            $.member_expression,
         ),
 
         binary_expression: $ => choice(
-            seq($._expr, ",", $._expr),
-            seq($._expr, $._2bar, $._expr),
-            seq($._expr, $._2amper, $._expr),
-            seq($._expr, $._bar, $._expr),
-            seq($._expr, $._caret, $._expr),
-            seq($._expr, $._amper, $.expr),
-            seq($._expr, "==", $._expr),
-            seq($._expr, "!=", $._expr),
-            seq($._expr, "<", $._expr),
-            seq($._expr, ">", $._expr),
-            seq($._expr, "<=", $._expr),
-            seq($._expr, ">=", $._expr),
-            seq($._expr, "<<", $._expr),
-            seq($._expr, ">>", $._expr),
-            seq($._expr, "+", $._expr),
-            seq($._expr, "-", $._expr),
-            seq($._expr, "*", $._expr),
-            seq($._expr, "/", $._expr),
-            seq($._expr, "%", $._expr),
-            seq($._expr, ".*", $._expr),
-            seq($._expr, "->*", $._expr),
+            prec.left(-1, seq($._expr, ",", $._expr)),
+            prec.left('or', seq($._expr, $._2bar, $._expr)),
+            prec.left('and', seq($._expr, $._2amper, $._expr)),
+            prec.left('bit-or', seq($._expr, $._bar, $._expr)),
+            prec.left('bit-xor', seq($._expr, $._caret, $._expr)),
+            prec.left('bit-and', seq($._expr, $._amper, $._expr)),
+            prec.left('equality', seq($._expr, "==", $._expr)),
+            prec.left('equality', seq($._expr, "!=", $._expr)),
+            prec.left('relational', seq($._expr, "<", $._expr)),
+            prec.left('relational', seq($._expr, ">", $._expr)),
+            prec.left('relational', seq($._expr, "<=", $._expr)),
+            prec.left('relational', seq($._expr, ">=", $._expr)),
+            prec.left('comparison', seq($._expr, "<=>", $._expr)),
+            prec.left('shift', seq($._expr, "<<", $._expr)),
+            prec.left('shift', seq($._expr, ">>", $._expr)),
+            prec.left('additive', seq($._expr, "+", $._expr)),
+            prec.left('additive', seq($._expr, "-", $._expr)),
+            prec.left('multiplicative', seq($._expr, "*", $._expr)),
+            prec.left('multiplicative', seq($._expr, "/", $._expr)),
+            prec.left('multiplicative', seq($._expr, "%", $._expr)),
+            prec.left('pointer-to-member', seq($._expr, ".*", $._expr)),
+            prec.left('pointer-to-member', seq($._expr, "->*", $._expr)),
         ),
 
-        assignment_expression: $ => choice(
-            seq($._expr, "=", $._expr_or_init),
+        assignment_expression: $ => prec.right('assignment', choice(
+           seq($._expr, "=", $._expr_or_init),
             seq($._expr, "*=", $._expr_or_init),
             seq($._expr, "/=", $._expr_or_init),
             seq($._expr, "%=", $._expr_or_init),
@@ -325,11 +392,13 @@ module.exports = grammar({
             seq($._expr, $._amper_eq, $._expr_or_init),
             seq($._expr, $._caret_eq, $._expr_or_init),
             seq($._expr, $._bar_eq, $._expr_or_init),
-        ),
+        )),
 
-        cast_expression: $ => seq("(", $._type, ")", $._expr),
+        conditional_expression: $ => prec.right('assignment', seq($._expr, "?", $._expr, ":", $._expr)),
 
-        pre_unary_expression: $ => choice(
+        cast_expression: $ => prec.right('prefix', seq("(", $._type, ")", $._expr)),
+
+        pre_unary_expression: $ => prec.right('prefix', choice(
             seq("++", $._expr),
             seq("--", $._expr),
             seq("*", $._expr),
@@ -338,9 +407,9 @@ module.exports = grammar({
             seq("-", $._expr),
             seq($._bang, $._expr),
             seq($._tilde, $._expr), 
-        ),
+        )),
 
-        sizeof_expression: $ => seq("sizeof", $._expr),
+        sizeof_expression: $ => prec.right('prefix', seq("sizeof", $._expr)),
         sizeof_type_expression: $ => seq("sizeof", "(", $._type, ")"),
         sizeof_variadic_expression: $ => seq("sizeof", "...", "(", $.name, ")"),
 
@@ -351,7 +420,7 @@ module.exports = grammar({
             "(", $._expr, ")",
         ),
 
-        new_expression: $ => seq(
+        new_expression: $ => prec.right('prefix', seq(
             optional("::"),
             "new",
             optional(seq("(", $._initializers, ")")),
@@ -360,26 +429,26 @@ module.exports = grammar({
                 seq("(", $._initializers, ")"),
                 $.initializer_list,
             ),
-        ),
+        )),
 
-        delete_expression: $ => seq(
+        delete_expression: $ => prec.right('prefix', seq(
             optional("::"),
             "delete",
-            optional($._lbracket, $._rbracket),
+            optional(seq($._lbracket, $._rbracket)),
             $._expr,
-        ),
+        )),
 
-        index_expression: $ => seq($._expr, $._lbracket, optional($._expr_or_init), $._rbracket),
+        index_expression: $ => prec.left('postfix', seq($._expr, $._lbracket, optional($._expr_or_init), $._rbracket)),
 
-        call_expression: $ => seq(choice($._expr, $._weak_type), "(", optional($._initializers), ")"),
-        struct_initializer: $ => seq($._weak_type, $.initializer_list),
+        call_expression: $ => prec.left('postfix', seq(choice($._expr, $._weak_type), "(", optional($._initializers), ")")),
+        constructor_expression: $ => prec.left('postfix', seq($._weak_type, $.initializer_list)),
 
-        member_expression: $ => seq($._expr, choice(".", "->"), optional("template"), $._any_name),
+        member_expression: $ => prec.left('postfix', seq($._expr, choice(".", "->"), optional("template"), $._any_name)),
 
-        postfix_expression: $ => choice(
+        post_unary_expression: $ => prec.left('postfix', choice(
             seq($._expr, "++"),
             seq($._expr, "--"),
-        ),
+        )),
 
         specific_cast_expression: $ => seq(
             choice(
@@ -398,30 +467,32 @@ module.exports = grammar({
             ")",
         ),
 
-        _type: $ => choice(
+        decltype: $ => seq("decltype", "(", $._expr, ")"),
+
+        _type: $ => prec.left(choice(
             $.function_type,
             $.array_type,
             $._type_left,
-        ),
+        )),
 
-        function_type: $ => seq(
+        function_type: $ => prec.left(seq(
             $._type,
             $._parameters_with_modifiers,
-        ),
+        )),
 
-        array_type: $ => seq(
+        array_type: $ => prec.left(seq(
             $._type,
             $._lbracket, optional($._expr), $._rbracket,
             repeat($._attributes),
-        ),
+        )),
 
-        _type_left: $ => choice(
+        _type_left: $ => prec.left(choice(
             $.pointer_type,
             $.reference_type,
             $.rvalue_reference_type,
             $.pointer_to_member_type,
             seq($._type_root, repeat($._attributes)),
-        ),
+        )),
 
         pointer_type: $ => seq($._type_left, "*"),
         reference_type: $ => seq($._type_left, $._amper),
@@ -441,39 +512,39 @@ module.exports = grammar({
             $.decltype,
         ),
 
-        short_type: $ => choice(
+        short_type: $ => prec.left('proper-type', choice(
             seq("short", $._type_root),
             "short",
-            seq($._type_type, "short"),
-        ),
+            seq($._type_root, "short"),
+        )),
 
-        long_type: $ => choice(
+        long_type: $ => prec.left('proper-type', choice(
             seq("long", $._type_root),
             "long",
             seq($._type_root, "long"),
-        ),
+        )),
 
-        signed_type: $ => choice(
+        signed_type: $ => prec.left('proper-type', choice(
             seq("signed", $._type_root),
             "signed",
             seq($._type_root, "signed"),
-        ),
+        )),
 
-        unsigned_type: $ => choice(
+        unsigned_type: $ => prec.left('proper-type', choice(
             seq("unsigned", $._type_root),
             "unsigned",
             seq($._type_root, "unsigned"),
-        ),
+        )),
 
-        const_type: $ => choice(
+        const_type: $ => prec.right(choice(
             seq("const", $._type_root),
             seq($._type_root, "const"),
-        ),
+        )),
 
-        volatile_type: $ => choice(
+        volatile_type: $ => prec.right(choice(
             seq("volatile", $._type_root),
             seq($._type_root, "volatile"),
-        ),
+        )),
 
         _any_pointer_modifier: $ => choice(
             $.pointer_modifier,
@@ -496,10 +567,10 @@ module.exports = grammar({
         reference_modifier: $ => $._amper,
         rvalue_reference_modifier: $ => $._2amper,
 
-        pointer_to_member_modifier: $ => seq(optional($.name, $.scoped_name), "::", "*"),
+        pointer_to_member_modifier: $ => seq(optional(seq($.name, $.scoped_name)), "::", "*"),
 
         function_type_modifier: $ => seq($._parameters_with_modifiers),
-        array_type_modifier: $ => seq($._lbracket, $._expr, $._rbracket, repeat($._attributes)),
+        array_type_modifier: $ => prec.left(seq($._lbracket, $._expr, $._rbracket, repeat($._attributes))),
 
         const_modifier: $ => "const",
         volatile_modifier: $ => "volatile",
@@ -524,17 +595,17 @@ module.exports = grammar({
         virtual_modifier: $ => "virtual",
         explicit_modifier: $ => "explicit",
 
-        _type_modifier: $ => choice(
+        _type_modifier: $ => prec('type-modifier', choice(
             $._simple_type_modifier,
-            $._specified_type_name,
+            $.specified_type_name,
             $._const_or_volatile_modifier,
-        ),
+        )),
 
         _simple_type_modifier: $ => choice(
             $.type_name,
             $.scoped_type_name,
-            $._primitive_type_modifier,
-            $._primitive_type_name,
+            $.primitive_type_modifier,
+            $.primitive_type_name,
             $.decltype,
         ),
 
@@ -549,11 +620,18 @@ module.exports = grammar({
             $._rbracket, $._rbracket,
         ),
 
-        attribute: $ => seq(
+        alignas_modifier: $ => seq(
+            "alignas", "(",
+            choice($._type, $._expr),
+            optional("..."),
+            ")",
+        ),
+
+        attribute: $ => prec.left(seq(
             optional(field("namespace", $.name)),
             field("name", alias($.name, $.attribute_name)),
             optional(field("arguments", $.attribute_arguments)),
-        ),
+        )),
 
         attribute_arguments: $ => seq("(", repeat($._meta_token), ")"),
 
@@ -717,29 +795,29 @@ module.exports = grammar({
             $.destructor_name,
         ),
 
-        operator_name: $ => seq(
+        operator_name: $ => prec.left(seq(
             "operator",
             choice(
                 $.overloadable_operator,
-                seq('""', alias($.literal_suffix, $.name)),
+                seq('""', alias($.name, $.literal_suffix)),
                 alias($._type, $.conversion_operator_type),
             ),
-        ),
+        )),
 
         destructor_name: $ => seq("~", $.type_name),
 
-        scope: $ => seq(optional(field("scope", choice($.name, $.scoped_name))), "::"),
+        scope: $ => prec('lone_scope', seq(optional(field("scope", choice($.name, $.scoped_name))), "::")),
 
-        scoped_type_name: $ => seq(optional(field("scope", choice($.name, $.scoped_name))), "::", field("name", choice($.type_name, $.template_type_name))),
-        scoped_name: $ => seq(optional(field("scope", choice($.name, $.scoped_name))), "::", field("name", $.name)),
-        scoped_operator_name: $ => seq(optional(field("scope", choicce($.name, $.scoped_name))), "::", field("name", $.operator_name)),
-        scoped_destructor_name: $ => seq(optional(field("scope", choicce($.name, $.scoped_name))), "::", field("name", $.destructor_name)),
+        scoped_type_name: $ => prec('proper_scope', seq(optional(field("scope", choice($.name, $.scoped_name))), "::", field("name", choice($.type_name, $.template_type_name)))),
+        scoped_name: $ => prec('proper_scope', seq(optional(field("scope", choice($.name, $.scoped_name))), "::", field("name", $.name))),
+        scoped_operator_name: $ => prec('proper_scope', seq(optional(field("scope", choice($.name, $.scoped_name))), "::", field("name", $.operator_name))),
+        scoped_destructor_name: $ => prec('proper_scope', seq(optional(field("scope", choice($.name, $.scoped_name))), "::", field("name", $.destructor_name))),
 
-        name: $ => $.identifier,
+        name: $ => prec('general_name', $.identifier),
 
-        type_name: $ => $.identifier,
+        type_name: $ => prec('specific_name', $.identifier),
 
-        overloadable_operator: $ => choice(
+        overloadable_operator: $ => prec.left(choice(
             "new",
             "delete",
             seq("new", $._lbracket, $._rbracket),
@@ -782,7 +860,7 @@ module.exports = grammar({
             "->",
             seq("(", ")"),
             seq($._lbracket, $._rbracket),
-        ),
+        )),
 
         identifier: $ => /[a-zA-Z_][a-zA-Z_0-9]*/,
                 
