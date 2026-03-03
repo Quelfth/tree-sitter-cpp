@@ -10,6 +10,11 @@
 module.exports = grammar({
     name: "cpp",
 
+    extras: $ => [
+        /\s/,
+        $.comment,
+    ],
+
     word: $ => $.identifier,
 
     precedences: $ => [
@@ -53,9 +58,14 @@ module.exports = grammar({
         [$.unsigned_type, $.primitive_type_modifier],
         [$._type_root, $._weak_type],
         [$.scoped_name],
-        [$._simple_type_modifier, $._weak_type],
-        [$.cast_expression, $.sizeof_type_expression],
+        [$.c_cast_expression, $.sizeof_type_expression],
         [$.template_type_name, $.scoped_type_name],
+        [$._weak_type, $.destructor_name],
+        [$.parameter, $.c_cast_expression],
+        [$._expr, $.this_capture],
+        [$.value_capture, $._any_name],
+        [$.reference_capture, $._any_name],
+        [$.macro_parameters, $.variadic_macro_parameters],
     ],
 
     rules: {
@@ -63,13 +73,33 @@ module.exports = grammar({
             $._declaration,
         ),
 
+        comment: $ => token(choice(
+            seq('//', /(\\+(.|\r?\n)|[^\\\n])*/),
+            seq(
+                '/*',
+                /[^*]*\*+([^/*][^*]*\*+)*/,
+                '/',
+            ),
+        )),
+
         _declaration: $ => choice(
             $.function_declaration,
             $.empty_declaration,
             $._statement_declaration,
         ),
 
+        using_declaration: $ => seq(
+            "using",
+            choice(
+                $._any_name,
+                seq("namespace", choice($.name, $.scoped_name)),
+            ),
+            ";",
+        ),
+
         _statement_declaration: $ => choice(
+            $._preprocessor_directive,
+            $.using_declaration,
             $.variable_declaration,
         ),
 
@@ -82,7 +112,7 @@ module.exports = grammar({
             optional($.trailing_return_type),
             choice(
                 ";",
-                $._function_body,
+                field('body', $._function_body),
                 seq("=", choice(
                     "0",
                     "default",
@@ -93,7 +123,7 @@ module.exports = grammar({
 
         _function_declarator: $ => prec.left(seq(
             repeat($._any_pointer_modifier),
-            choice(seq(optional($.scope), $.name), $.parenthesized_function_declarator),
+            choice(seq(optional($.scope), field("name", $.name)), field("declarator", $.parenthesized_function_declarator)),
             repeat(choice(
                 $.function_type_modifier,
                 $.array_type_modifier,
@@ -121,7 +151,7 @@ module.exports = grammar({
 
         _variable_declarator: $ => seq(
             repeat($._any_pointer_modifier),
-            choice(seq(optional($.scope), $.name), $.parenthesized_variable_declarator),
+            choice(seq(optional($.scope), field("name", $.name)), field("declarator", $.parenthesized_variable_declarator)),
         ),
 
         parenthesized_variable_declarator: $ => seq("(", $._variable_declarator, ")"),
@@ -133,11 +163,32 @@ module.exports = grammar({
         ),
 
         _empty_declaration: $ => seq(repeat($._attributes), ";"),
+                
+        _abstract_declarator: $ => prec.left(choice(
+            seq(
+                repeat1($._any_pointer_modifier),
+                optional(field("declarator", $.parenthesized_abstract_declarator)),
+                repeat(choice(
+                    $.function_type_modifier,
+                    $.array_type_modifier,
+                )),
+            ),
+            seq(
+                repeat($._any_pointer_modifier),
+                optional(field("declarator", $.parenthesized_abstract_declarator)),
+                repeat1(choice(
+                    $.function_type_modifier,
+                    $.array_type_modifier,
+                )),
+            ),
+        )),
+        
+        parenthesized_abstract_declarator: $ => seq("(", $._abstract_declarator, ")"),
 
         _declaration_type_modifiers: $ => prec.left(seq(
             repeat($._attributes),
             repeat($._declaration_modifier),
-            $._type_modifier,
+            field("type", $._type_root),
             repeat(choice($._declaration_modifier, $._type_modifier)),
             repeat($._attributes),
         )),
@@ -177,7 +228,7 @@ module.exports = grammar({
         ),
 
         _parameters_with_modifiers: $ => prec.right(seq(
-            $.parameters,
+            field('parameters', $.parameters),
             repeat($._attributes),
             repeat($._const_or_volatile_modifier),
             repeat($._any_reference_modifier),
@@ -227,7 +278,7 @@ module.exports = grammar({
             $.try_block,
         ),
 
-        labeled_statement: $ => seq(
+        labeled_statement: $ => prec(1, seq(
             repeat($._attributes),
             choice(
                 $.name,
@@ -236,7 +287,7 @@ module.exports = grammar({
             ),
             ":",
             $._statement,
-        ),
+        )),
 
         expression_statement: $ => seq($._expr, ";"),
 
@@ -339,7 +390,7 @@ module.exports = grammar({
             $.binary_expression,
             $.assignment_expression,
             $.conditional_expression,
-            $.cast_expression,
+            $.c_cast_expression,
             $.pre_unary_expression,
             $.post_unary_expression,
             $.sizeof_expression,
@@ -349,10 +400,18 @@ module.exports = grammar({
             $.noexcept_expression,
             $.new_expression,
             $.delete_expression,
+            $.cast_expression,
             $.index_expression,
             $.call_expression,
             $.constructor_expression,
             $.member_expression,
+            $._literal,
+            $.this,
+            $.parenthesized_expression,
+            $._any_name,
+            $.lambda_expression,
+            $.boolean,
+            $.nullptr,
         ),
 
         binary_expression: $ => choice(
@@ -396,7 +455,7 @@ module.exports = grammar({
 
         conditional_expression: $ => prec.right('assignment', seq($._expr, "?", $._expr, ":", $._expr)),
 
-        cast_expression: $ => prec.right('prefix', seq("(", $._type, ")", $._expr)),
+        c_cast_expression: $ => prec.right('prefix', seq("(", $._type, ")", $._expr)),
 
         pre_unary_expression: $ => prec.right('prefix', choice(
             seq("++", $._expr),
@@ -450,7 +509,7 @@ module.exports = grammar({
             seq($._expr, "--"),
         )),
 
-        specific_cast_expression: $ => seq(
+        cast_expression: $ => seq(
             choice(
                 "dynamic_cast",
                 "static_cast",
@@ -467,6 +526,39 @@ module.exports = grammar({
             ")",
         ),
 
+        this: $ => "this",
+
+        parenthesized_expression: $ => seq("(", $._expr, ")"),
+
+        lambda_expression: $ => seq(
+            $._lbracket,
+            choice(
+                $._capture_default,
+                $._lambda_captures,
+                seq($._capture_default, ",", $._lambda_captures),
+            ),
+            $._rbracket,
+            optional(seq(
+                field("parameters", $.parameters),
+                optional($.mutable_modifier), // exception specification
+                repeat($._attributes),
+                optional($.trailing_return_type),
+            )),
+            field("body", $.block),
+        ),
+
+        _capture_default: $ => choice($.reference_capture_default, $.value_capture_default),
+
+        reference_capture_default: $ => $._amper,
+        value_capture_default: $ => "=",
+
+        _lambda_captures: $ => seq($._lambda_capture, repeat(seq(",", $._lambda_capture)), optional("...")),
+        _lambda_capture: $ => choice($.value_capture, $.reference_capture, $.this_capture),
+
+        value_capture: $ => $.name,
+        reference_capture: $ => seq($._amper, $.name),
+        this_capture: $ => $.this,
+
         decltype: $ => seq("decltype", "(", $._expr, ")"),
 
         _type: $ => prec.left(choice(
@@ -477,11 +569,13 @@ module.exports = grammar({
 
         function_type: $ => prec.left(seq(
             $._type,
+            optional($.parenthesized_abstract_declarator),
             $._parameters_with_modifiers,
         )),
 
         array_type: $ => prec.left(seq(
             $._type,
+            optional($.parenthesized_abstract_declarator),
             $._lbracket, optional($._expr), $._rbracket,
             repeat($._attributes),
         )),
@@ -500,7 +594,7 @@ module.exports = grammar({
         pointer_to_member_type: $ => seq($._type_left, $.scope, "*"),
 
         _type_root: $ => choice(
-            $.primitive_type_name,
+            $.primitive_type,
             $.short_type,
             $.long_type,
             $.signed_type,
@@ -536,12 +630,12 @@ module.exports = grammar({
             seq($._type_root, "unsigned"),
         )),
 
-        const_type: $ => prec.right(choice(
+        const_type: $ => prec.right('proper-type', choice(
             seq("const", $._type_root),
             seq($._type_root, "const"),
         )),
 
-        volatile_type: $ => prec.right(choice(
+        volatile_type: $ => prec.right('proper-type', choice(
             seq("volatile", $._type_root),
             seq($._type_root, "volatile"),
         )),
@@ -563,8 +657,8 @@ module.exports = grammar({
             $.volatile_modifier,
         ),
 
-        pointer_modifier: $ => "*",
-        reference_modifier: $ => $._amper,
+        pointer_modifier: $ => prec.left("*"),
+        reference_modifier: $ => prec.left($._amper),
         rvalue_reference_modifier: $ => $._2amper,
 
         pointer_to_member_modifier: $ => seq(optional(seq($.name, $.scoped_name)), "::", "*"),
@@ -572,8 +666,8 @@ module.exports = grammar({
         function_type_modifier: $ => seq($._parameters_with_modifiers),
         array_type_modifier: $ => prec.left(seq($._lbracket, $._expr, $._rbracket, repeat($._attributes))),
 
-        const_modifier: $ => "const",
-        volatile_modifier: $ => "volatile",
+        const_modifier: $ => prec('type-modifier', "const"),
+        volatile_modifier: $ => prec('type-modifier', "volatile"),
 
         _declaration_modifier: $ => choice(
             $.register_modifier,
@@ -605,7 +699,7 @@ module.exports = grammar({
             $.type_name,
             $.scoped_type_name,
             $.primitive_type_modifier,
-            $.primitive_type_name,
+            $.primitive_type,
             $.decltype,
         ),
 
@@ -704,8 +798,8 @@ module.exports = grammar({
         _weak_type: $ => choice(
             $.scoped_type_name,
             $.type_name,
-            $.primitive_type_name,
-            alias($.primitive_type_modifier, $.primitive_type_name),
+            $.primitive_type,
+            alias($.primitive_type_modifier, $.primitive_type),
             $.typename,
             $.decltype,
         ),
@@ -717,7 +811,7 @@ module.exports = grammar({
             "unsigned",
         ),
 
-        primitive_type_name: $ => choice(
+        primitive_type: $ => choice(
             "char",
             "char16_t",
             "char32_t",
@@ -737,20 +831,33 @@ module.exports = grammar({
             "union",
         ),
 
+        _literal: $ => choice(
+            $.integer,
+            $.float,
+            $.string,
+            $.character,
+        ),
+
         integer: $ => /[0-9]+/,
-        float: $ => /[0-9]+.[0-9]*/,
+        float: $ => /[0-9]+\.[0-9]*/,
         string: $ => seq(
             '"',
-            repeat($.string_content),
+            repeat(choice($.string_content, $.escape_sequence)),
             '"',
         ),
-        string_content: $ => /[^"]*/,
+        string_content: $ => /[^"\\]+/,
+        escape_sequence: $ => choice(
+            '\\"',
+            '\\\\',
+        ),
         character: $ => seq(
             "'",
             $.character_content,
             "'",
         ),
         character_content: $ => /[^']/,
+        boolean: $ => choice('true', 'false'),
+        nullptr: $ => 'nullptr',
 
         specified_type_name: $ => seq(
             field("specifier", $.type_specifier),
@@ -804,7 +911,7 @@ module.exports = grammar({
             ),
         )),
 
-        destructor_name: $ => seq("~", $.type_name),
+        destructor_name: $ => seq($._tilde, $.type_name),
 
         scope: $ => prec('lone_scope', seq(optional(field("scope", choice($.name, $.scoped_name))), "::")),
 
@@ -884,5 +991,184 @@ module.exports = grammar({
         _hash: $ => choice("#", alias("%:", "#")),
         _2hash: $ => choice("##", alias("%:%:", "##")),
 
+
+        _preprocessor_directive: $ => choice(
+            $.if_directive,
+            $.ifdef_directive,
+            $.ifndef_directive,
+            $.elif_directive,
+            $.elifdef_directive,
+            $.elifndef_directive,
+            $.else_directive,
+            $.endif_directive,
+            $.include_directive,
+            $.object_macro_define_directive,
+            $.function_macro_define_directive,
+            $.variadic_function_macro_define_directive,
+            $.undef_directive,
+            $.pragma_directive,
+        ),
+
+        if_directive: $ => seq($._hash, 'if', $._expr, token.immediate('\r?\n')),
+        ifdef_directive: $ => seq($._hash, 'ifdef', $.name, token.immediate('\r?\n')),
+        ifndef_directive: $ => seq($._hash, 'ifndef', $.name, token.immediate('\r?\n')),
+
+        elif_directive: $ => seq($._hash, 'elif', $._expr, token.immediate('\r?\n')),
+        elifdef_directive: $ => seq($._hash, 'elifdef', $.name, token.immediate('\r?\n')),
+        elifndef_directive: $ => seq($._hash, 'elifndef', $.name, token.immediate('\r?\n')),
+
+        else_directive: $ => seq($._hash, 'else', token.immediate('\r?\n')),
+
+        endif_directive: $ => seq($._hash, 'endif', token.immediate('\r?\n')),
+
+        include_directive: $ => seq(
+            $._hash,
+            "include",
+            $.include_path,
+            "\r?\n",
+        ),
+
+        include_path: $ => choice(
+            seq("<", alias(/[^>]*/, $.include_path_content), ">"),
+            seq('"', alias(/[^"]*/, $.include_path_content), '"'),
+        ),
+
+        object_macro_define_directive: $ => seq(
+            $._hash,
+            "define",
+            field("name", $.name),
+            optional(field('body', $.object_macro_body)),
+            token.immediate("\r?\n"),
+        ),
+
+        function_macro_define_directive: $ => seq(
+            $._hash,
+            "define",
+            field("name", $.name),
+            field("parameters", $.macro_parameters),
+            optional(field('body', $.function_macro_body)),
+            token.immediate("\r?\n"),
+        ),
+
+        variadic_function_macro_define_directive: $ => seq(
+            $._hash,
+            "define",
+            field("name", $.name),
+            field("parameters", $.variadic_macro_parameters),
+            optional(field('body', $.function_macro_body)),
+            token.immediate("\r?\n"),
+        ),
+
+        undef_directive: $ => seq(
+            $._hash,
+            'undef',
+            field("name", $.name),
+            token.immediate("\r?\n"),
+        ),
+
+        pragma_directive: $ => seq(
+            $._hash,
+            'pragma',
+            repeat($._preproc_token),
+            token.immediate("\r?\n"),
+        ),
+
+        macro_parameters: $ => seq(
+            token.immediate('('),
+            $.macro_parameter, repeat(seq(',', $.macro_parameter)),
+            ')',
+        ),
+
+        variadic_macro_parameters: $ => seq(
+            token.immediate('('),
+            repeat(seq($.macro_parameter, ',')), '...',
+            ')',
+        ),
+
+        macro_parameter: $ => $.identifier,
+
+        object_macro_body: $ => repeat1($._preproc_token),
+
+        function_macro_body: $ => repeat1($._function_macro_token),
+
+        _function_macro_token: $ => choice(
+            $._preproc_token,
+            $.stringified_parameter,
+            $.concatenated_parameters,
+        ),
+
+        stringified_parameter: $ => prec(1, seq($._hash, field('parameter', $.identifier))),
+        concatenated_parameters: $ => prec.left(1, seq($.identifier, $._2hash, $.identifier)),
+
+        variadic_arguments: $ => '__VA_ARGS__',
+        variadic_optional: $ => seq('__VA_OPT__', '(', repeat($._function_macro_token), ')'),
+
+        _preproc_token: $ => choice(
+            alias($.identifier, $.identifier_token),
+            $.integer,
+            $.float,
+            $.character,
+            $.string,
+            $.preprocessor_operator_token,
+            $.line_continuation,
+        ),
+
+        preprocessor_operator_token: $ => choice(
+            $._lbrace,
+            $._rbrace,
+            $._lbracket,
+            $._rbracket,
+            $._hash,
+            $._2hash,
+            '(',
+            ')',
+            ';',
+            ':',
+            '...',
+            'new',
+            'delete',
+            '?',
+            '::',
+            '.',
+            '.*',
+            '+',
+            '-',
+            '*',
+            '/',
+            '%',
+            $._caret,
+            $._amper,
+            $._bar,
+            $._tilde,
+            $._bang,
+            '=',
+            '<',
+            '>',
+            '+=',
+            '-=',
+            '*=',
+            '/=',
+            '%=',
+            $._caret_eq,
+            $._amper_eq,
+            $._bar_eq,
+            '<<',
+            '>>',
+            '<<=',
+            '>>=',
+            '==',
+            $._bang_eq,
+            '<=',
+            '>=',
+            $._2amper,
+            $._2bar,
+            '++',
+            '--',
+            ',',
+            '->*',
+            '->',
+        ),
+
+        line_continuation: $ => token.immediate('\\\s*\r?\n'),
     }
 });

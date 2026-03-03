@@ -32,11 +32,23 @@
           "named": true
         },
         {
+          "type": "boolean",
+          "named": true
+        },
+        {
+          "type": "c_cast_expression",
+          "named": true
+        },
+        {
           "type": "call_expression",
           "named": true
         },
         {
           "type": "cast_expression",
+          "named": true
+        },
+        {
+          "type": "character",
           "named": true
         },
         {
@@ -60,11 +72,27 @@
           "named": true
         },
         {
+          "type": "destructor_name",
+          "named": true
+        },
+        {
+          "type": "float",
+          "named": true
+        },
+        {
           "type": "function_type",
           "named": true
         },
         {
           "type": "index_expression",
+          "named": true
+        },
+        {
+          "type": "integer",
+          "named": true
+        },
+        {
+          "type": "lambda_expression",
           "named": true
         },
         {
@@ -76,11 +104,27 @@
           "named": true
         },
         {
+          "type": "name",
+          "named": true
+        },
+        {
           "type": "new_expression",
           "named": true
         },
         {
           "type": "noexcept_expression",
+          "named": true
+        },
+        {
+          "type": "nullptr",
+          "named": true
+        },
+        {
+          "type": "operator_name",
+          "named": true
+        },
+        {
+          "type": "parenthesized_expression",
           "named": true
         },
         {
@@ -100,7 +144,7 @@
           "named": true
         },
         {
-          "type": "primitive_type_name",
+          "type": "primitive_type",
           "named": true
         },
         {
@@ -109,6 +153,18 @@
         },
         {
           "type": "rvalue_reference_type",
+          "named": true
+        },
+        {
+          "type": "scoped_destructor_name",
+          "named": true
+        },
+        {
+          "type": "scoped_name",
+          "named": true
+        },
+        {
+          "type": "scoped_operator_name",
           "named": true
         },
         {
@@ -137,6 +193,14 @@
         },
         {
           "type": "specified_type_name",
+          "named": true
+        },
+        {
+          "type": "string",
+          "named": true
+        },
+        {
+          "type": "this",
           "named": true
         },
         {
@@ -195,7 +259,7 @@
           "named": true
         },
         {
-          "type": "primitive_type_name",
+          "type": "primitive_type",
           "named": true
         },
         {
@@ -266,11 +330,23 @@
           "named": true
         },
         {
+          "type": "boolean",
+          "named": true
+        },
+        {
+          "type": "c_cast_expression",
+          "named": true
+        },
+        {
           "type": "call_expression",
           "named": true
         },
         {
           "type": "cast_expression",
+          "named": true
+        },
+        {
+          "type": "character",
           "named": true
         },
         {
@@ -294,11 +370,27 @@
           "named": true
         },
         {
+          "type": "destructor_name",
+          "named": true
+        },
+        {
+          "type": "float",
+          "named": true
+        },
+        {
           "type": "function_type",
           "named": true
         },
         {
           "type": "index_expression",
+          "named": true
+        },
+        {
+          "type": "integer",
+          "named": true
+        },
+        {
+          "type": "lambda_expression",
           "named": true
         },
         {
@@ -310,11 +402,31 @@
           "named": true
         },
         {
+          "type": "name",
+          "named": true
+        },
+        {
           "type": "new_expression",
           "named": true
         },
         {
           "type": "noexcept_expression",
+          "named": true
+        },
+        {
+          "type": "nullptr",
+          "named": true
+        },
+        {
+          "type": "operator_name",
+          "named": true
+        },
+        {
+          "type": "parenthesized_abstract_declarator",
+          "named": true
+        },
+        {
+          "type": "parenthesized_expression",
           "named": true
         },
         {
@@ -334,7 +446,7 @@
           "named": true
         },
         {
-          "type": "primitive_type_name",
+          "type": "primitive_type",
           "named": true
         },
         {
@@ -343,6 +455,18 @@
         },
         {
           "type": "rvalue_reference_type",
+          "named": true
+        },
+        {
+          "type": "scoped_destructor_name",
+          "named": true
+        },
+        {
+          "type": "scoped_name",
+          "named": true
+        },
+        {
+          "type": "scoped_operator_name",
           "named": true
         },
         {
@@ -371,6 +495,14 @@
         },
         {
           "type": "specified_type_name",
+          "named": true
+        },
+        {
+          "type": "string",
+          "named": true
+        },
+        {
+          "type": "this",
           "named": true
         },
         {
@@ -413,11 +545,23 @@
           "named": true
         },
         {
+          "type": "boolean",
+          "named": true
+        },
+        {
+          "type": "c_cast_expression",
+          "named": true
+        },
+        {
           "type": "call_expression",
           "named": true
         },
         {
           "type": "cast_expression",
+          "named": true
+        },
+        {
+          "type": "character",
           "named": true
         },
         {
@@ -433,11 +577,31 @@
           "named": true
         },
         {
+          "type": "destructor_name",
+          "named": true
+        },
+        {
+          "type": "float",
+          "named": true
+        },
+        {
           "type": "index_expression",
           "named": true
         },
         {
+          "type": "integer",
+          "named": true
+        },
+        {
+          "type": "lambda_expression",
+          "named": true
+        },
+        {
           "type": "member_expression",
+          "named": true
+        },
+        {
+          "type": "name",
           "named": true
         },
         {
@@ -449,11 +613,35 @@
           "named": true
         },
         {
+          "type": "nullptr",
+          "named": true
+        },
+        {
+          "type": "operator_name",
+          "named": true
+        },
+        {
+          "type": "parenthesized_expression",
+          "named": true
+        },
+        {
           "type": "post_unary_expression",
           "named": true
         },
         {
           "type": "pre_unary_expression",
+          "named": true
+        },
+        {
+          "type": "scoped_destructor_name",
+          "named": true
+        },
+        {
+          "type": "scoped_name",
+          "named": true
+        },
+        {
+          "type": "scoped_operator_name",
           "named": true
         },
         {
@@ -466,6 +654,14 @@
         },
         {
           "type": "sizeof_variadic_expression",
+          "named": true
+        },
+        {
+          "type": "string",
+          "named": true
+        },
+        {
+          "type": "this",
           "named": true
         }
       ]
@@ -492,11 +688,23 @@
           "named": true
         },
         {
+          "type": "boolean",
+          "named": true
+        },
+        {
+          "type": "c_cast_expression",
+          "named": true
+        },
+        {
           "type": "call_expression",
           "named": true
         },
         {
           "type": "cast_expression",
+          "named": true
+        },
+        {
+          "type": "character",
           "named": true
         },
         {
@@ -512,6 +720,14 @@
           "named": true
         },
         {
+          "type": "destructor_name",
+          "named": true
+        },
+        {
+          "type": "float",
+          "named": true
+        },
+        {
           "type": "index_expression",
           "named": true
         },
@@ -520,7 +736,19 @@
           "named": true
         },
         {
+          "type": "integer",
+          "named": true
+        },
+        {
+          "type": "lambda_expression",
+          "named": true
+        },
+        {
           "type": "member_expression",
+          "named": true
+        },
+        {
+          "type": "name",
           "named": true
         },
         {
@@ -532,11 +760,35 @@
           "named": true
         },
         {
+          "type": "nullptr",
+          "named": true
+        },
+        {
+          "type": "operator_name",
+          "named": true
+        },
+        {
+          "type": "parenthesized_expression",
+          "named": true
+        },
+        {
           "type": "post_unary_expression",
           "named": true
         },
         {
           "type": "pre_unary_expression",
+          "named": true
+        },
+        {
+          "type": "scoped_destructor_name",
+          "named": true
+        },
+        {
+          "type": "scoped_name",
+          "named": true
+        },
+        {
+          "type": "scoped_operator_name",
           "named": true
         },
         {
@@ -549,6 +801,14 @@
         },
         {
           "type": "sizeof_variadic_expression",
+          "named": true
+        },
+        {
+          "type": "string",
+          "named": true
+        },
+        {
+          "type": "this",
           "named": true
         }
       ]
@@ -680,11 +940,23 @@
           "named": true
         },
         {
+          "type": "boolean",
+          "named": true
+        },
+        {
+          "type": "c_cast_expression",
+          "named": true
+        },
+        {
           "type": "call_expression",
           "named": true
         },
         {
           "type": "cast_expression",
+          "named": true
+        },
+        {
+          "type": "character",
           "named": true
         },
         {
@@ -700,11 +972,31 @@
           "named": true
         },
         {
+          "type": "destructor_name",
+          "named": true
+        },
+        {
+          "type": "float",
+          "named": true
+        },
+        {
           "type": "index_expression",
           "named": true
         },
         {
+          "type": "integer",
+          "named": true
+        },
+        {
+          "type": "lambda_expression",
+          "named": true
+        },
+        {
           "type": "member_expression",
+          "named": true
+        },
+        {
+          "type": "name",
           "named": true
         },
         {
@@ -716,11 +1008,35 @@
           "named": true
         },
         {
+          "type": "nullptr",
+          "named": true
+        },
+        {
+          "type": "operator_name",
+          "named": true
+        },
+        {
+          "type": "parenthesized_expression",
+          "named": true
+        },
+        {
           "type": "post_unary_expression",
           "named": true
         },
         {
           "type": "pre_unary_expression",
+          "named": true
+        },
+        {
+          "type": "scoped_destructor_name",
+          "named": true
+        },
+        {
+          "type": "scoped_name",
+          "named": true
+        },
+        {
+          "type": "scoped_operator_name",
           "named": true
         },
         {
@@ -733,6 +1049,14 @@
         },
         {
           "type": "sizeof_variadic_expression",
+          "named": true
+        },
+        {
+          "type": "string",
+          "named": true
+        },
+        {
+          "type": "this",
           "named": true
         }
       ]
@@ -759,7 +1083,27 @@
           "named": true
         },
         {
+          "type": "elif_directive",
+          "named": true
+        },
+        {
+          "type": "elifdef_directive",
+          "named": true
+        },
+        {
+          "type": "elifndef_directive",
+          "named": true
+        },
+        {
+          "type": "else_directive",
+          "named": true
+        },
+        {
           "type": "empty_statement",
+          "named": true
+        },
+        {
+          "type": "endif_directive",
           "named": true
         },
         {
@@ -771,7 +1115,15 @@
           "named": true
         },
         {
+          "type": "function_macro_define_directive",
+          "named": true
+        },
+        {
           "type": "goto_statement",
+          "named": true
+        },
+        {
+          "type": "if_directive",
           "named": true
         },
         {
@@ -779,7 +1131,27 @@
           "named": true
         },
         {
+          "type": "ifdef_directive",
+          "named": true
+        },
+        {
+          "type": "ifndef_directive",
+          "named": true
+        },
+        {
+          "type": "include_directive",
+          "named": true
+        },
+        {
           "type": "labeled_statement",
+          "named": true
+        },
+        {
+          "type": "object_macro_define_directive",
+          "named": true
+        },
+        {
+          "type": "pragma_directive",
           "named": true
         },
         {
@@ -795,7 +1167,19 @@
           "named": true
         },
         {
+          "type": "undef_directive",
+          "named": true
+        },
+        {
+          "type": "using_declaration",
+          "named": true
+        },
+        {
           "type": "variable_declaration",
+          "named": true
+        },
+        {
+          "type": "variadic_function_macro_define_directive",
           "named": true
         },
         {
@@ -806,9 +1190,229 @@
     }
   },
   {
+    "type": "boolean",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "break_statement",
     "named": true,
     "fields": {}
+  },
+  {
+    "type": "c_cast_expression",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "alignas_modifier",
+          "named": true
+        },
+        {
+          "type": "alignof_expression",
+          "named": true
+        },
+        {
+          "type": "array_type",
+          "named": true
+        },
+        {
+          "type": "assignment_expression",
+          "named": true
+        },
+        {
+          "type": "attribute_modifier",
+          "named": true
+        },
+        {
+          "type": "binary_expression",
+          "named": true
+        },
+        {
+          "type": "boolean",
+          "named": true
+        },
+        {
+          "type": "c_cast_expression",
+          "named": true
+        },
+        {
+          "type": "call_expression",
+          "named": true
+        },
+        {
+          "type": "cast_expression",
+          "named": true
+        },
+        {
+          "type": "character",
+          "named": true
+        },
+        {
+          "type": "conditional_expression",
+          "named": true
+        },
+        {
+          "type": "const_type",
+          "named": true
+        },
+        {
+          "type": "constructor_expression",
+          "named": true
+        },
+        {
+          "type": "decltype",
+          "named": true
+        },
+        {
+          "type": "delete_expression",
+          "named": true
+        },
+        {
+          "type": "destructor_name",
+          "named": true
+        },
+        {
+          "type": "float",
+          "named": true
+        },
+        {
+          "type": "function_type",
+          "named": true
+        },
+        {
+          "type": "index_expression",
+          "named": true
+        },
+        {
+          "type": "integer",
+          "named": true
+        },
+        {
+          "type": "lambda_expression",
+          "named": true
+        },
+        {
+          "type": "long_type",
+          "named": true
+        },
+        {
+          "type": "member_expression",
+          "named": true
+        },
+        {
+          "type": "name",
+          "named": true
+        },
+        {
+          "type": "new_expression",
+          "named": true
+        },
+        {
+          "type": "noexcept_expression",
+          "named": true
+        },
+        {
+          "type": "nullptr",
+          "named": true
+        },
+        {
+          "type": "operator_name",
+          "named": true
+        },
+        {
+          "type": "parenthesized_expression",
+          "named": true
+        },
+        {
+          "type": "pointer_to_member_type",
+          "named": true
+        },
+        {
+          "type": "pointer_type",
+          "named": true
+        },
+        {
+          "type": "post_unary_expression",
+          "named": true
+        },
+        {
+          "type": "pre_unary_expression",
+          "named": true
+        },
+        {
+          "type": "primitive_type",
+          "named": true
+        },
+        {
+          "type": "reference_type",
+          "named": true
+        },
+        {
+          "type": "rvalue_reference_type",
+          "named": true
+        },
+        {
+          "type": "scoped_destructor_name",
+          "named": true
+        },
+        {
+          "type": "scoped_name",
+          "named": true
+        },
+        {
+          "type": "scoped_operator_name",
+          "named": true
+        },
+        {
+          "type": "scoped_type_name",
+          "named": true
+        },
+        {
+          "type": "short_type",
+          "named": true
+        },
+        {
+          "type": "signed_type",
+          "named": true
+        },
+        {
+          "type": "sizeof_expression",
+          "named": true
+        },
+        {
+          "type": "sizeof_type_expression",
+          "named": true
+        },
+        {
+          "type": "sizeof_variadic_expression",
+          "named": true
+        },
+        {
+          "type": "specified_type_name",
+          "named": true
+        },
+        {
+          "type": "string",
+          "named": true
+        },
+        {
+          "type": "this",
+          "named": true
+        },
+        {
+          "type": "type_name",
+          "named": true
+        },
+        {
+          "type": "unsigned_type",
+          "named": true
+        }
+      ]
+    }
   },
   {
     "type": "call_expression",
@@ -831,11 +1435,23 @@
           "named": true
         },
         {
+          "type": "boolean",
+          "named": true
+        },
+        {
+          "type": "c_cast_expression",
+          "named": true
+        },
+        {
           "type": "call_expression",
           "named": true
         },
         {
           "type": "cast_expression",
+          "named": true
+        },
+        {
+          "type": "character",
           "named": true
         },
         {
@@ -855,6 +1471,14 @@
           "named": true
         },
         {
+          "type": "destructor_name",
+          "named": true
+        },
+        {
+          "type": "float",
+          "named": true
+        },
+        {
           "type": "index_expression",
           "named": true
         },
@@ -863,7 +1487,19 @@
           "named": true
         },
         {
+          "type": "integer",
+          "named": true
+        },
+        {
+          "type": "lambda_expression",
+          "named": true
+        },
+        {
           "type": "member_expression",
+          "named": true
+        },
+        {
+          "type": "name",
           "named": true
         },
         {
@@ -875,6 +1511,18 @@
           "named": true
         },
         {
+          "type": "nullptr",
+          "named": true
+        },
+        {
+          "type": "operator_name",
+          "named": true
+        },
+        {
+          "type": "parenthesized_expression",
+          "named": true
+        },
+        {
           "type": "post_unary_expression",
           "named": true
         },
@@ -883,7 +1531,19 @@
           "named": true
         },
         {
-          "type": "primitive_type_name",
+          "type": "primitive_type",
+          "named": true
+        },
+        {
+          "type": "scoped_destructor_name",
+          "named": true
+        },
+        {
+          "type": "scoped_name",
+          "named": true
+        },
+        {
+          "type": "scoped_operator_name",
           "named": true
         },
         {
@@ -900,6 +1560,14 @@
         },
         {
           "type": "sizeof_variadic_expression",
+          "named": true
+        },
+        {
+          "type": "string",
+          "named": true
+        },
+        {
+          "type": "this",
           "named": true
         },
         {
@@ -946,11 +1614,23 @@
           "named": true
         },
         {
+          "type": "boolean",
+          "named": true
+        },
+        {
+          "type": "c_cast_expression",
+          "named": true
+        },
+        {
           "type": "call_expression",
           "named": true
         },
         {
           "type": "cast_expression",
+          "named": true
+        },
+        {
+          "type": "character",
           "named": true
         },
         {
@@ -974,11 +1654,27 @@
           "named": true
         },
         {
+          "type": "destructor_name",
+          "named": true
+        },
+        {
+          "type": "float",
+          "named": true
+        },
+        {
           "type": "function_type",
           "named": true
         },
         {
           "type": "index_expression",
+          "named": true
+        },
+        {
+          "type": "integer",
+          "named": true
+        },
+        {
+          "type": "lambda_expression",
           "named": true
         },
         {
@@ -990,11 +1686,27 @@
           "named": true
         },
         {
+          "type": "name",
+          "named": true
+        },
+        {
           "type": "new_expression",
           "named": true
         },
         {
           "type": "noexcept_expression",
+          "named": true
+        },
+        {
+          "type": "nullptr",
+          "named": true
+        },
+        {
+          "type": "operator_name",
+          "named": true
+        },
+        {
+          "type": "parenthesized_expression",
           "named": true
         },
         {
@@ -1014,7 +1726,7 @@
           "named": true
         },
         {
-          "type": "primitive_type_name",
+          "type": "primitive_type",
           "named": true
         },
         {
@@ -1023,6 +1735,18 @@
         },
         {
           "type": "rvalue_reference_type",
+          "named": true
+        },
+        {
+          "type": "scoped_destructor_name",
+          "named": true
+        },
+        {
+          "type": "scoped_name",
+          "named": true
+        },
+        {
+          "type": "scoped_operator_name",
           "named": true
         },
         {
@@ -1054,11 +1778,34 @@
           "named": true
         },
         {
+          "type": "string",
+          "named": true
+        },
+        {
+          "type": "this",
+          "named": true
+        },
+        {
           "type": "type_name",
           "named": true
         },
         {
           "type": "unsigned_type",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "character",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "character_content",
           "named": true
         }
       ]
@@ -1074,6 +1821,21 @@
       "types": [
         {
           "type": "character_content",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "concatenated_parameters",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "identifier",
           "named": true
         }
       ]
@@ -1100,11 +1862,23 @@
           "named": true
         },
         {
+          "type": "boolean",
+          "named": true
+        },
+        {
+          "type": "c_cast_expression",
+          "named": true
+        },
+        {
           "type": "call_expression",
           "named": true
         },
         {
           "type": "cast_expression",
+          "named": true
+        },
+        {
+          "type": "character",
           "named": true
         },
         {
@@ -1120,11 +1894,31 @@
           "named": true
         },
         {
+          "type": "destructor_name",
+          "named": true
+        },
+        {
+          "type": "float",
+          "named": true
+        },
+        {
           "type": "index_expression",
           "named": true
         },
         {
+          "type": "integer",
+          "named": true
+        },
+        {
+          "type": "lambda_expression",
+          "named": true
+        },
+        {
           "type": "member_expression",
+          "named": true
+        },
+        {
+          "type": "name",
           "named": true
         },
         {
@@ -1136,11 +1930,35 @@
           "named": true
         },
         {
+          "type": "nullptr",
+          "named": true
+        },
+        {
+          "type": "operator_name",
+          "named": true
+        },
+        {
+          "type": "parenthesized_expression",
+          "named": true
+        },
+        {
           "type": "post_unary_expression",
           "named": true
         },
         {
           "type": "pre_unary_expression",
+          "named": true
+        },
+        {
+          "type": "scoped_destructor_name",
+          "named": true
+        },
+        {
+          "type": "scoped_name",
+          "named": true
+        },
+        {
+          "type": "scoped_operator_name",
           "named": true
         },
         {
@@ -1153,6 +1971,14 @@
         },
         {
           "type": "sizeof_variadic_expression",
+          "named": true
+        },
+        {
+          "type": "string",
+          "named": true
+        },
+        {
+          "type": "this",
           "named": true
         }
       ]
@@ -1184,7 +2010,7 @@
           "named": true
         },
         {
-          "type": "primitive_type_name",
+          "type": "primitive_type",
           "named": true
         },
         {
@@ -1231,7 +2057,7 @@
           "named": true
         },
         {
-          "type": "primitive_type_name",
+          "type": "primitive_type",
           "named": true
         },
         {
@@ -1299,7 +2125,7 @@
           "named": true
         },
         {
-          "type": "primitive_type_name",
+          "type": "primitive_type",
           "named": true
         },
         {
@@ -1358,11 +2184,23 @@
           "named": true
         },
         {
+          "type": "boolean",
+          "named": true
+        },
+        {
+          "type": "c_cast_expression",
+          "named": true
+        },
+        {
           "type": "call_expression",
           "named": true
         },
         {
           "type": "cast_expression",
+          "named": true
+        },
+        {
+          "type": "character",
           "named": true
         },
         {
@@ -1378,11 +2216,31 @@
           "named": true
         },
         {
+          "type": "destructor_name",
+          "named": true
+        },
+        {
+          "type": "float",
+          "named": true
+        },
+        {
           "type": "index_expression",
           "named": true
         },
         {
+          "type": "integer",
+          "named": true
+        },
+        {
+          "type": "lambda_expression",
+          "named": true
+        },
+        {
           "type": "member_expression",
+          "named": true
+        },
+        {
+          "type": "name",
           "named": true
         },
         {
@@ -1394,11 +2252,35 @@
           "named": true
         },
         {
+          "type": "nullptr",
+          "named": true
+        },
+        {
+          "type": "operator_name",
+          "named": true
+        },
+        {
+          "type": "parenthesized_expression",
+          "named": true
+        },
+        {
           "type": "post_unary_expression",
           "named": true
         },
         {
           "type": "pre_unary_expression",
+          "named": true
+        },
+        {
+          "type": "scoped_destructor_name",
+          "named": true
+        },
+        {
+          "type": "scoped_name",
+          "named": true
+        },
+        {
+          "type": "scoped_operator_name",
           "named": true
         },
         {
@@ -1411,6 +2293,14 @@
         },
         {
           "type": "sizeof_variadic_expression",
+          "named": true
+        },
+        {
+          "type": "string",
+          "named": true
+        },
+        {
+          "type": "this",
           "named": true
         }
       ]
@@ -1437,11 +2327,23 @@
           "named": true
         },
         {
+          "type": "boolean",
+          "named": true
+        },
+        {
+          "type": "c_cast_expression",
+          "named": true
+        },
+        {
           "type": "call_expression",
           "named": true
         },
         {
           "type": "cast_expression",
+          "named": true
+        },
+        {
+          "type": "character",
           "named": true
         },
         {
@@ -1457,11 +2359,31 @@
           "named": true
         },
         {
+          "type": "destructor_name",
+          "named": true
+        },
+        {
+          "type": "float",
+          "named": true
+        },
+        {
           "type": "index_expression",
           "named": true
         },
         {
+          "type": "integer",
+          "named": true
+        },
+        {
+          "type": "lambda_expression",
+          "named": true
+        },
+        {
           "type": "member_expression",
+          "named": true
+        },
+        {
+          "type": "name",
           "named": true
         },
         {
@@ -1473,11 +2395,35 @@
           "named": true
         },
         {
+          "type": "nullptr",
+          "named": true
+        },
+        {
+          "type": "operator_name",
+          "named": true
+        },
+        {
+          "type": "parenthesized_expression",
+          "named": true
+        },
+        {
           "type": "post_unary_expression",
           "named": true
         },
         {
           "type": "pre_unary_expression",
+          "named": true
+        },
+        {
+          "type": "scoped_destructor_name",
+          "named": true
+        },
+        {
+          "type": "scoped_name",
+          "named": true
+        },
+        {
+          "type": "scoped_operator_name",
           "named": true
         },
         {
@@ -1490,6 +2436,14 @@
         },
         {
           "type": "sizeof_variadic_expression",
+          "named": true
+        },
+        {
+          "type": "string",
+          "named": true
+        },
+        {
+          "type": "this",
           "named": true
         }
       ]
@@ -1550,6 +2504,184 @@
     }
   },
   {
+    "type": "elif_directive",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "alignof_expression",
+          "named": true
+        },
+        {
+          "type": "assignment_expression",
+          "named": true
+        },
+        {
+          "type": "binary_expression",
+          "named": true
+        },
+        {
+          "type": "boolean",
+          "named": true
+        },
+        {
+          "type": "c_cast_expression",
+          "named": true
+        },
+        {
+          "type": "call_expression",
+          "named": true
+        },
+        {
+          "type": "cast_expression",
+          "named": true
+        },
+        {
+          "type": "character",
+          "named": true
+        },
+        {
+          "type": "conditional_expression",
+          "named": true
+        },
+        {
+          "type": "constructor_expression",
+          "named": true
+        },
+        {
+          "type": "delete_expression",
+          "named": true
+        },
+        {
+          "type": "destructor_name",
+          "named": true
+        },
+        {
+          "type": "float",
+          "named": true
+        },
+        {
+          "type": "index_expression",
+          "named": true
+        },
+        {
+          "type": "integer",
+          "named": true
+        },
+        {
+          "type": "lambda_expression",
+          "named": true
+        },
+        {
+          "type": "member_expression",
+          "named": true
+        },
+        {
+          "type": "name",
+          "named": true
+        },
+        {
+          "type": "new_expression",
+          "named": true
+        },
+        {
+          "type": "noexcept_expression",
+          "named": true
+        },
+        {
+          "type": "nullptr",
+          "named": true
+        },
+        {
+          "type": "operator_name",
+          "named": true
+        },
+        {
+          "type": "parenthesized_expression",
+          "named": true
+        },
+        {
+          "type": "post_unary_expression",
+          "named": true
+        },
+        {
+          "type": "pre_unary_expression",
+          "named": true
+        },
+        {
+          "type": "scoped_destructor_name",
+          "named": true
+        },
+        {
+          "type": "scoped_name",
+          "named": true
+        },
+        {
+          "type": "scoped_operator_name",
+          "named": true
+        },
+        {
+          "type": "sizeof_expression",
+          "named": true
+        },
+        {
+          "type": "sizeof_type_expression",
+          "named": true
+        },
+        {
+          "type": "sizeof_variadic_expression",
+          "named": true
+        },
+        {
+          "type": "string",
+          "named": true
+        },
+        {
+          "type": "this",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "elifdef_directive",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "name",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "elifndef_directive",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "name",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "else_directive",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "empty_declaration",
     "named": true,
     "fields": {},
@@ -1574,6 +2706,16 @@
     "fields": {}
   },
   {
+    "type": "endif_directive",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "escape_sequence",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "expression_statement",
     "named": true,
     "fields": {},
@@ -1594,11 +2736,23 @@
           "named": true
         },
         {
+          "type": "boolean",
+          "named": true
+        },
+        {
+          "type": "c_cast_expression",
+          "named": true
+        },
+        {
           "type": "call_expression",
           "named": true
         },
         {
           "type": "cast_expression",
+          "named": true
+        },
+        {
+          "type": "character",
           "named": true
         },
         {
@@ -1614,11 +2768,31 @@
           "named": true
         },
         {
+          "type": "destructor_name",
+          "named": true
+        },
+        {
+          "type": "float",
+          "named": true
+        },
+        {
           "type": "index_expression",
           "named": true
         },
         {
+          "type": "integer",
+          "named": true
+        },
+        {
+          "type": "lambda_expression",
+          "named": true
+        },
+        {
           "type": "member_expression",
+          "named": true
+        },
+        {
+          "type": "name",
           "named": true
         },
         {
@@ -1630,11 +2804,35 @@
           "named": true
         },
         {
+          "type": "nullptr",
+          "named": true
+        },
+        {
+          "type": "operator_name",
+          "named": true
+        },
+        {
+          "type": "parenthesized_expression",
+          "named": true
+        },
+        {
           "type": "post_unary_expression",
           "named": true
         },
         {
           "type": "pre_unary_expression",
+          "named": true
+        },
+        {
+          "type": "scoped_destructor_name",
+          "named": true
+        },
+        {
+          "type": "scoped_name",
+          "named": true
+        },
+        {
+          "type": "scoped_operator_name",
           "named": true
         },
         {
@@ -1648,6 +2846,14 @@
         {
           "type": "sizeof_variadic_expression",
           "named": true
+        },
+        {
+          "type": "string",
+          "named": true
+        },
+        {
+          "type": "this",
+          "named": true
         }
       ]
     }
@@ -1655,7 +2861,74 @@
   {
     "type": "for_statement",
     "named": true,
-    "fields": {},
+    "fields": {
+      "declarator": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "parenthesized_variable_declarator",
+            "named": true
+          }
+        ]
+      },
+      "name": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "name",
+            "named": true
+          }
+        ]
+      },
+      "type": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "const_type",
+            "named": true
+          },
+          {
+            "type": "decltype",
+            "named": true
+          },
+          {
+            "type": "long_type",
+            "named": true
+          },
+          {
+            "type": "primitive_type",
+            "named": true
+          },
+          {
+            "type": "scoped_type_name",
+            "named": true
+          },
+          {
+            "type": "short_type",
+            "named": true
+          },
+          {
+            "type": "signed_type",
+            "named": true
+          },
+          {
+            "type": "specified_type_name",
+            "named": true
+          },
+          {
+            "type": "type_name",
+            "named": true
+          },
+          {
+            "type": "unsigned_type",
+            "named": true
+          }
+        ]
+      }
+    },
     "children": {
       "multiple": true,
       "required": true,
@@ -1685,7 +2958,15 @@
           "named": true
         },
         {
+          "type": "boolean",
+          "named": true
+        },
+        {
           "type": "break_statement",
+          "named": true
+        },
+        {
+          "type": "c_cast_expression",
           "named": true
         },
         {
@@ -1694,6 +2975,10 @@
         },
         {
           "type": "cast_expression",
+          "named": true
+        },
+        {
+          "type": "character",
           "named": true
         },
         {
@@ -1721,7 +3006,31 @@
           "named": true
         },
         {
+          "type": "destructor_name",
+          "named": true
+        },
+        {
+          "type": "elif_directive",
+          "named": true
+        },
+        {
+          "type": "elifdef_directive",
+          "named": true
+        },
+        {
+          "type": "elifndef_directive",
+          "named": true
+        },
+        {
+          "type": "else_directive",
+          "named": true
+        },
+        {
           "type": "empty_statement",
+          "named": true
+        },
+        {
+          "type": "endif_directive",
           "named": true
         },
         {
@@ -1737,7 +3046,15 @@
           "named": true
         },
         {
+          "type": "float",
+          "named": true
+        },
+        {
           "type": "for_statement",
+          "named": true
+        },
+        {
+          "type": "function_macro_define_directive",
           "named": true
         },
         {
@@ -1745,7 +3062,23 @@
           "named": true
         },
         {
+          "type": "if_directive",
+          "named": true
+        },
+        {
           "type": "if_statement",
+          "named": true
+        },
+        {
+          "type": "ifdef_directive",
+          "named": true
+        },
+        {
+          "type": "ifndef_directive",
+          "named": true
+        },
+        {
+          "type": "include_directive",
           "named": true
         },
         {
@@ -1761,7 +3094,15 @@
           "named": true
         },
         {
+          "type": "integer",
+          "named": true
+        },
+        {
           "type": "labeled_statement",
+          "named": true
+        },
+        {
+          "type": "lambda_expression",
           "named": true
         },
         {
@@ -1785,7 +3126,19 @@
           "named": true
         },
         {
-          "type": "parenthesized_variable_declarator",
+          "type": "nullptr",
+          "named": true
+        },
+        {
+          "type": "object_macro_define_directive",
+          "named": true
+        },
+        {
+          "type": "operator_name",
+          "named": true
+        },
+        {
+          "type": "parenthesized_expression",
           "named": true
         },
         {
@@ -1801,15 +3154,19 @@
           "named": true
         },
         {
+          "type": "pragma_directive",
+          "named": true
+        },
+        {
           "type": "pre_unary_expression",
           "named": true
         },
         {
-          "type": "primitive_type_modifier",
+          "type": "primitive_type",
           "named": true
         },
         {
-          "type": "primitive_type_name",
+          "type": "primitive_type_modifier",
           "named": true
         },
         {
@@ -1830,6 +3187,18 @@
         },
         {
           "type": "scope",
+          "named": true
+        },
+        {
+          "type": "scoped_destructor_name",
+          "named": true
+        },
+        {
+          "type": "scoped_name",
+          "named": true
+        },
+        {
+          "type": "scoped_operator_name",
           "named": true
         },
         {
@@ -1857,7 +3226,15 @@
           "named": true
         },
         {
+          "type": "string",
+          "named": true
+        },
+        {
           "type": "switch_statement",
+          "named": true
+        },
+        {
+          "type": "this",
           "named": true
         },
         {
@@ -1873,7 +3250,19 @@
           "named": true
         },
         {
+          "type": "undef_directive",
+          "named": true
+        },
+        {
+          "type": "using_declaration",
+          "named": true
+        },
+        {
           "type": "variable_declaration",
+          "named": true
+        },
+        {
+          "type": "variadic_function_macro_define_directive",
           "named": true
         },
         {
@@ -1894,10 +3283,97 @@
   {
     "type": "function_declaration",
     "named": true,
-    "fields": {},
+    "fields": {
+      "body": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "block",
+            "named": true
+          }
+        ]
+      },
+      "declarator": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "parenthesized_function_declarator",
+            "named": true
+          }
+        ]
+      },
+      "name": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "name",
+            "named": true
+          }
+        ]
+      },
+      "parameters": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "parameters",
+            "named": true
+          }
+        ]
+      },
+      "type": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "const_type",
+            "named": true
+          },
+          {
+            "type": "decltype",
+            "named": true
+          },
+          {
+            "type": "long_type",
+            "named": true
+          },
+          {
+            "type": "primitive_type",
+            "named": true
+          },
+          {
+            "type": "scoped_type_name",
+            "named": true
+          },
+          {
+            "type": "short_type",
+            "named": true
+          },
+          {
+            "type": "signed_type",
+            "named": true
+          },
+          {
+            "type": "specified_type_name",
+            "named": true
+          },
+          {
+            "type": "type_name",
+            "named": true
+          },
+          {
+            "type": "unsigned_type",
+            "named": true
+          }
+        ]
+      }
+    },
     "children": {
       "multiple": true,
-      "required": true,
+      "required": false,
       "types": [
         {
           "type": "alignas_modifier",
@@ -1909,10 +3385,6 @@
         },
         {
           "type": "attribute_modifier",
-          "named": true
-        },
-        {
-          "type": "block",
           "named": true
         },
         {
@@ -1944,18 +3416,6 @@
           "named": true
         },
         {
-          "type": "name",
-          "named": true
-        },
-        {
-          "type": "parameters",
-          "named": true
-        },
-        {
-          "type": "parenthesized_function_declarator",
-          "named": true
-        },
-        {
           "type": "pointer_modifier",
           "named": true
         },
@@ -1964,11 +3424,11 @@
           "named": true
         },
         {
-          "type": "primitive_type_modifier",
+          "type": "primitive_type",
           "named": true
         },
         {
-          "type": "primitive_type_name",
+          "type": "primitive_type_modifier",
           "named": true
         },
         {
@@ -2023,9 +3483,103 @@
     }
   },
   {
-    "type": "function_type",
+    "type": "function_macro_body",
     "named": true,
     "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "character",
+          "named": true
+        },
+        {
+          "type": "concatenated_parameters",
+          "named": true
+        },
+        {
+          "type": "float",
+          "named": true
+        },
+        {
+          "type": "identifier_token",
+          "named": true
+        },
+        {
+          "type": "integer",
+          "named": true
+        },
+        {
+          "type": "line_continuation",
+          "named": true
+        },
+        {
+          "type": "preprocessor_operator_token",
+          "named": true
+        },
+        {
+          "type": "string",
+          "named": true
+        },
+        {
+          "type": "stringified_parameter",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "function_macro_define_directive",
+    "named": true,
+    "fields": {
+      "body": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "function_macro_body",
+            "named": true
+          }
+        ]
+      },
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "name",
+            "named": true
+          }
+        ]
+      },
+      "parameters": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "macro_parameters",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "function_type",
+    "named": true,
+    "fields": {
+      "parameters": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "parameters",
+            "named": true
+          }
+        ]
+      }
+    },
     "children": {
       "multiple": true,
       "required": true,
@@ -2063,7 +3617,7 @@
           "named": true
         },
         {
-          "type": "parameters",
+          "type": "parenthesized_abstract_declarator",
           "named": true
         },
         {
@@ -2075,7 +3629,7 @@
           "named": true
         },
         {
-          "type": "primitive_type_name",
+          "type": "primitive_type",
           "named": true
         },
         {
@@ -2128,10 +3682,21 @@
   {
     "type": "function_type_modifier",
     "named": true,
-    "fields": {},
+    "fields": {
+      "parameters": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "parameters",
+            "named": true
+          }
+        ]
+      }
+    },
     "children": {
       "multiple": true,
-      "required": true,
+      "required": false,
       "types": [
         {
           "type": "alignas_modifier",
@@ -2143,10 +3708,6 @@
         },
         {
           "type": "const_modifier",
-          "named": true
-        },
-        {
-          "type": "parameters",
           "named": true
         },
         {
@@ -2185,10 +3746,153 @@
     "fields": {},
     "children": {
       "multiple": false,
-      "required": true,
+      "required": false,
       "types": [
         {
           "type": "identifier",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "if_directive",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "alignof_expression",
+          "named": true
+        },
+        {
+          "type": "assignment_expression",
+          "named": true
+        },
+        {
+          "type": "binary_expression",
+          "named": true
+        },
+        {
+          "type": "boolean",
+          "named": true
+        },
+        {
+          "type": "c_cast_expression",
+          "named": true
+        },
+        {
+          "type": "call_expression",
+          "named": true
+        },
+        {
+          "type": "cast_expression",
+          "named": true
+        },
+        {
+          "type": "character",
+          "named": true
+        },
+        {
+          "type": "conditional_expression",
+          "named": true
+        },
+        {
+          "type": "constructor_expression",
+          "named": true
+        },
+        {
+          "type": "delete_expression",
+          "named": true
+        },
+        {
+          "type": "destructor_name",
+          "named": true
+        },
+        {
+          "type": "float",
+          "named": true
+        },
+        {
+          "type": "index_expression",
+          "named": true
+        },
+        {
+          "type": "integer",
+          "named": true
+        },
+        {
+          "type": "lambda_expression",
+          "named": true
+        },
+        {
+          "type": "member_expression",
+          "named": true
+        },
+        {
+          "type": "name",
+          "named": true
+        },
+        {
+          "type": "new_expression",
+          "named": true
+        },
+        {
+          "type": "noexcept_expression",
+          "named": true
+        },
+        {
+          "type": "nullptr",
+          "named": true
+        },
+        {
+          "type": "operator_name",
+          "named": true
+        },
+        {
+          "type": "parenthesized_expression",
+          "named": true
+        },
+        {
+          "type": "post_unary_expression",
+          "named": true
+        },
+        {
+          "type": "pre_unary_expression",
+          "named": true
+        },
+        {
+          "type": "scoped_destructor_name",
+          "named": true
+        },
+        {
+          "type": "scoped_name",
+          "named": true
+        },
+        {
+          "type": "scoped_operator_name",
+          "named": true
+        },
+        {
+          "type": "sizeof_expression",
+          "named": true
+        },
+        {
+          "type": "sizeof_type_expression",
+          "named": true
+        },
+        {
+          "type": "sizeof_variadic_expression",
+          "named": true
+        },
+        {
+          "type": "string",
+          "named": true
+        },
+        {
+          "type": "this",
           "named": true
         }
       ]
@@ -2219,7 +3923,15 @@
           "named": true
         },
         {
+          "type": "boolean",
+          "named": true
+        },
+        {
           "type": "break_statement",
+          "named": true
+        },
+        {
+          "type": "c_cast_expression",
           "named": true
         },
         {
@@ -2228,6 +3940,10 @@
         },
         {
           "type": "cast_expression",
+          "named": true
+        },
+        {
+          "type": "character",
           "named": true
         },
         {
@@ -2247,7 +3963,31 @@
           "named": true
         },
         {
+          "type": "destructor_name",
+          "named": true
+        },
+        {
+          "type": "elif_directive",
+          "named": true
+        },
+        {
+          "type": "elifdef_directive",
+          "named": true
+        },
+        {
+          "type": "elifndef_directive",
+          "named": true
+        },
+        {
+          "type": "else_directive",
+          "named": true
+        },
+        {
           "type": "empty_statement",
+          "named": true
+        },
+        {
+          "type": "endif_directive",
           "named": true
         },
         {
@@ -2255,7 +3995,15 @@
           "named": true
         },
         {
+          "type": "float",
+          "named": true
+        },
+        {
           "type": "for_statement",
+          "named": true
+        },
+        {
+          "type": "function_macro_define_directive",
           "named": true
         },
         {
@@ -2263,7 +4011,23 @@
           "named": true
         },
         {
+          "type": "if_directive",
+          "named": true
+        },
+        {
           "type": "if_statement",
+          "named": true
+        },
+        {
+          "type": "ifdef_directive",
+          "named": true
+        },
+        {
+          "type": "ifndef_directive",
+          "named": true
+        },
+        {
+          "type": "include_directive",
           "named": true
         },
         {
@@ -2271,11 +4035,23 @@
           "named": true
         },
         {
+          "type": "integer",
+          "named": true
+        },
+        {
           "type": "labeled_statement",
           "named": true
         },
         {
+          "type": "lambda_expression",
+          "named": true
+        },
+        {
           "type": "member_expression",
+          "named": true
+        },
+        {
+          "type": "name",
           "named": true
         },
         {
@@ -2287,7 +4063,27 @@
           "named": true
         },
         {
+          "type": "nullptr",
+          "named": true
+        },
+        {
+          "type": "object_macro_define_directive",
+          "named": true
+        },
+        {
+          "type": "operator_name",
+          "named": true
+        },
+        {
+          "type": "parenthesized_expression",
+          "named": true
+        },
+        {
           "type": "post_unary_expression",
+          "named": true
+        },
+        {
+          "type": "pragma_directive",
           "named": true
         },
         {
@@ -2296,6 +4092,18 @@
         },
         {
           "type": "return_statement",
+          "named": true
+        },
+        {
+          "type": "scoped_destructor_name",
+          "named": true
+        },
+        {
+          "type": "scoped_name",
+          "named": true
+        },
+        {
+          "type": "scoped_operator_name",
           "named": true
         },
         {
@@ -2311,7 +4119,15 @@
           "named": true
         },
         {
+          "type": "string",
+          "named": true
+        },
+        {
           "type": "switch_statement",
+          "named": true
+        },
+        {
+          "type": "this",
           "named": true
         },
         {
@@ -2319,11 +4135,83 @@
           "named": true
         },
         {
+          "type": "undef_directive",
+          "named": true
+        },
+        {
+          "type": "using_declaration",
+          "named": true
+        },
+        {
           "type": "variable_declaration",
           "named": true
         },
         {
+          "type": "variadic_function_macro_define_directive",
+          "named": true
+        },
+        {
           "type": "while_statement",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "ifdef_directive",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "name",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "ifndef_directive",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "name",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "include_directive",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "include_path",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "include_path",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "include_path_content",
           "named": true
         }
       ]
@@ -2350,11 +4238,23 @@
           "named": true
         },
         {
+          "type": "boolean",
+          "named": true
+        },
+        {
+          "type": "c_cast_expression",
+          "named": true
+        },
+        {
           "type": "call_expression",
           "named": true
         },
         {
           "type": "cast_expression",
+          "named": true
+        },
+        {
+          "type": "character",
           "named": true
         },
         {
@@ -2370,6 +4270,14 @@
           "named": true
         },
         {
+          "type": "destructor_name",
+          "named": true
+        },
+        {
+          "type": "float",
+          "named": true
+        },
+        {
           "type": "index_expression",
           "named": true
         },
@@ -2378,7 +4286,19 @@
           "named": true
         },
         {
+          "type": "integer",
+          "named": true
+        },
+        {
+          "type": "lambda_expression",
+          "named": true
+        },
+        {
           "type": "member_expression",
+          "named": true
+        },
+        {
+          "type": "name",
           "named": true
         },
         {
@@ -2390,11 +4310,35 @@
           "named": true
         },
         {
+          "type": "nullptr",
+          "named": true
+        },
+        {
+          "type": "operator_name",
+          "named": true
+        },
+        {
+          "type": "parenthesized_expression",
+          "named": true
+        },
+        {
           "type": "post_unary_expression",
           "named": true
         },
         {
           "type": "pre_unary_expression",
+          "named": true
+        },
+        {
+          "type": "scoped_destructor_name",
+          "named": true
+        },
+        {
+          "type": "scoped_name",
+          "named": true
+        },
+        {
+          "type": "scoped_operator_name",
           "named": true
         },
         {
@@ -2407,6 +4351,14 @@
         },
         {
           "type": "sizeof_variadic_expression",
+          "named": true
+        },
+        {
+          "type": "string",
+          "named": true
+        },
+        {
+          "type": "this",
           "named": true
         }
       ]
@@ -2433,11 +4385,23 @@
           "named": true
         },
         {
+          "type": "boolean",
+          "named": true
+        },
+        {
+          "type": "c_cast_expression",
+          "named": true
+        },
+        {
           "type": "call_expression",
           "named": true
         },
         {
           "type": "cast_expression",
+          "named": true
+        },
+        {
+          "type": "character",
           "named": true
         },
         {
@@ -2453,6 +4417,14 @@
           "named": true
         },
         {
+          "type": "destructor_name",
+          "named": true
+        },
+        {
+          "type": "float",
+          "named": true
+        },
+        {
           "type": "index_expression",
           "named": true
         },
@@ -2461,7 +4433,19 @@
           "named": true
         },
         {
+          "type": "integer",
+          "named": true
+        },
+        {
+          "type": "lambda_expression",
+          "named": true
+        },
+        {
           "type": "member_expression",
+          "named": true
+        },
+        {
+          "type": "name",
           "named": true
         },
         {
@@ -2473,11 +4457,35 @@
           "named": true
         },
         {
+          "type": "nullptr",
+          "named": true
+        },
+        {
+          "type": "operator_name",
+          "named": true
+        },
+        {
+          "type": "parenthesized_expression",
+          "named": true
+        },
+        {
           "type": "post_unary_expression",
           "named": true
         },
         {
           "type": "pre_unary_expression",
+          "named": true
+        },
+        {
+          "type": "scoped_destructor_name",
+          "named": true
+        },
+        {
+          "type": "scoped_name",
+          "named": true
+        },
+        {
+          "type": "scoped_operator_name",
           "named": true
         },
         {
@@ -2490,6 +4498,14 @@
         },
         {
           "type": "sizeof_variadic_expression",
+          "named": true
+        },
+        {
+          "type": "string",
+          "named": true
+        },
+        {
+          "type": "this",
           "named": true
         }
       ]
@@ -2528,7 +4544,15 @@
           "named": true
         },
         {
+          "type": "boolean",
+          "named": true
+        },
+        {
           "type": "break_statement",
+          "named": true
+        },
+        {
+          "type": "c_cast_expression",
           "named": true
         },
         {
@@ -2537,6 +4561,10 @@
         },
         {
           "type": "cast_expression",
+          "named": true
+        },
+        {
+          "type": "character",
           "named": true
         },
         {
@@ -2556,7 +4584,31 @@
           "named": true
         },
         {
+          "type": "destructor_name",
+          "named": true
+        },
+        {
+          "type": "elif_directive",
+          "named": true
+        },
+        {
+          "type": "elifdef_directive",
+          "named": true
+        },
+        {
+          "type": "elifndef_directive",
+          "named": true
+        },
+        {
+          "type": "else_directive",
+          "named": true
+        },
+        {
           "type": "empty_statement",
+          "named": true
+        },
+        {
+          "type": "endif_directive",
           "named": true
         },
         {
@@ -2564,7 +4616,15 @@
           "named": true
         },
         {
+          "type": "float",
+          "named": true
+        },
+        {
           "type": "for_statement",
+          "named": true
+        },
+        {
+          "type": "function_macro_define_directive",
           "named": true
         },
         {
@@ -2572,7 +4632,23 @@
           "named": true
         },
         {
+          "type": "if_directive",
+          "named": true
+        },
+        {
           "type": "if_statement",
+          "named": true
+        },
+        {
+          "type": "ifdef_directive",
+          "named": true
+        },
+        {
+          "type": "ifndef_directive",
+          "named": true
+        },
+        {
+          "type": "include_directive",
           "named": true
         },
         {
@@ -2580,7 +4656,15 @@
           "named": true
         },
         {
+          "type": "integer",
+          "named": true
+        },
+        {
           "type": "labeled_statement",
+          "named": true
+        },
+        {
+          "type": "lambda_expression",
           "named": true
         },
         {
@@ -2600,7 +4684,27 @@
           "named": true
         },
         {
+          "type": "nullptr",
+          "named": true
+        },
+        {
+          "type": "object_macro_define_directive",
+          "named": true
+        },
+        {
+          "type": "operator_name",
+          "named": true
+        },
+        {
+          "type": "parenthesized_expression",
+          "named": true
+        },
+        {
           "type": "post_unary_expression",
+          "named": true
+        },
+        {
+          "type": "pragma_directive",
           "named": true
         },
         {
@@ -2609,6 +4713,18 @@
         },
         {
           "type": "return_statement",
+          "named": true
+        },
+        {
+          "type": "scoped_destructor_name",
+          "named": true
+        },
+        {
+          "type": "scoped_name",
+          "named": true
+        },
+        {
+          "type": "scoped_operator_name",
           "named": true
         },
         {
@@ -2624,7 +4740,15 @@
           "named": true
         },
         {
+          "type": "string",
+          "named": true
+        },
+        {
           "type": "switch_statement",
+          "named": true
+        },
+        {
+          "type": "this",
           "named": true
         },
         {
@@ -2632,11 +4756,91 @@
           "named": true
         },
         {
+          "type": "undef_directive",
+          "named": true
+        },
+        {
+          "type": "using_declaration",
+          "named": true
+        },
+        {
           "type": "variable_declaration",
           "named": true
         },
         {
+          "type": "variadic_function_macro_define_directive",
+          "named": true
+        },
+        {
           "type": "while_statement",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "lambda_expression",
+    "named": true,
+    "fields": {
+      "body": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "block",
+            "named": true
+          }
+        ]
+      },
+      "parameters": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "parameters",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "alignas_modifier",
+          "named": true
+        },
+        {
+          "type": "attribute_modifier",
+          "named": true
+        },
+        {
+          "type": "mutable_modifier",
+          "named": true
+        },
+        {
+          "type": "reference_capture",
+          "named": true
+        },
+        {
+          "type": "reference_capture_default",
+          "named": true
+        },
+        {
+          "type": "this_capture",
+          "named": true
+        },
+        {
+          "type": "trailing_return_type",
+          "named": true
+        },
+        {
+          "type": "value_capture",
+          "named": true
+        },
+        {
+          "type": "value_capture_default",
           "named": true
         }
       ]
@@ -2678,7 +4882,7 @@
           "named": true
         },
         {
-          "type": "primitive_type_name",
+          "type": "primitive_type",
           "named": true
         },
         {
@@ -2709,6 +4913,36 @@
     }
   },
   {
+    "type": "macro_parameter",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "identifier",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "macro_parameters",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "macro_parameter",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "member_expression",
     "named": true,
     "fields": {},
@@ -2729,11 +4963,23 @@
           "named": true
         },
         {
+          "type": "boolean",
+          "named": true
+        },
+        {
+          "type": "c_cast_expression",
+          "named": true
+        },
+        {
           "type": "call_expression",
           "named": true
         },
         {
           "type": "cast_expression",
+          "named": true
+        },
+        {
+          "type": "character",
           "named": true
         },
         {
@@ -2753,7 +4999,19 @@
           "named": true
         },
         {
+          "type": "float",
+          "named": true
+        },
+        {
           "type": "index_expression",
+          "named": true
+        },
+        {
+          "type": "integer",
+          "named": true
+        },
+        {
+          "type": "lambda_expression",
           "named": true
         },
         {
@@ -2773,7 +5031,15 @@
           "named": true
         },
         {
+          "type": "nullptr",
+          "named": true
+        },
+        {
           "type": "operator_name",
+          "named": true
+        },
+        {
+          "type": "parenthesized_expression",
           "named": true
         },
         {
@@ -2806,6 +5072,14 @@
         },
         {
           "type": "sizeof_variadic_expression",
+          "named": true
+        },
+        {
+          "type": "string",
+          "named": true
+        },
+        {
+          "type": "this",
           "named": true
         }
       ]
@@ -2859,11 +5133,23 @@
           "named": true
         },
         {
+          "type": "boolean",
+          "named": true
+        },
+        {
+          "type": "c_cast_expression",
+          "named": true
+        },
+        {
           "type": "call_expression",
           "named": true
         },
         {
           "type": "cast_expression",
+          "named": true
+        },
+        {
+          "type": "character",
           "named": true
         },
         {
@@ -2887,6 +5173,14 @@
           "named": true
         },
         {
+          "type": "destructor_name",
+          "named": true
+        },
+        {
+          "type": "float",
+          "named": true
+        },
+        {
           "type": "function_type",
           "named": true
         },
@@ -2899,6 +5193,14 @@
           "named": true
         },
         {
+          "type": "integer",
+          "named": true
+        },
+        {
+          "type": "lambda_expression",
+          "named": true
+        },
+        {
           "type": "long_type",
           "named": true
         },
@@ -2907,11 +5209,27 @@
           "named": true
         },
         {
+          "type": "name",
+          "named": true
+        },
+        {
           "type": "new_expression",
           "named": true
         },
         {
           "type": "noexcept_expression",
+          "named": true
+        },
+        {
+          "type": "nullptr",
+          "named": true
+        },
+        {
+          "type": "operator_name",
+          "named": true
+        },
+        {
+          "type": "parenthesized_expression",
           "named": true
         },
         {
@@ -2931,7 +5249,7 @@
           "named": true
         },
         {
-          "type": "primitive_type_name",
+          "type": "primitive_type",
           "named": true
         },
         {
@@ -2940,6 +5258,18 @@
         },
         {
           "type": "rvalue_reference_type",
+          "named": true
+        },
+        {
+          "type": "scoped_destructor_name",
+          "named": true
+        },
+        {
+          "type": "scoped_name",
+          "named": true
+        },
+        {
+          "type": "scoped_operator_name",
           "named": true
         },
         {
@@ -2968,6 +5298,14 @@
         },
         {
           "type": "specified_type_name",
+          "named": true
+        },
+        {
+          "type": "string",
+          "named": true
+        },
+        {
+          "type": "this",
           "named": true
         },
         {
@@ -3002,11 +5340,23 @@
           "named": true
         },
         {
+          "type": "boolean",
+          "named": true
+        },
+        {
+          "type": "c_cast_expression",
+          "named": true
+        },
+        {
           "type": "call_expression",
           "named": true
         },
         {
           "type": "cast_expression",
+          "named": true
+        },
+        {
+          "type": "character",
           "named": true
         },
         {
@@ -3022,11 +5372,31 @@
           "named": true
         },
         {
+          "type": "destructor_name",
+          "named": true
+        },
+        {
+          "type": "float",
+          "named": true
+        },
+        {
           "type": "index_expression",
           "named": true
         },
         {
+          "type": "integer",
+          "named": true
+        },
+        {
+          "type": "lambda_expression",
+          "named": true
+        },
+        {
           "type": "member_expression",
+          "named": true
+        },
+        {
+          "type": "name",
           "named": true
         },
         {
@@ -3038,11 +5408,35 @@
           "named": true
         },
         {
+          "type": "nullptr",
+          "named": true
+        },
+        {
+          "type": "operator_name",
+          "named": true
+        },
+        {
+          "type": "parenthesized_expression",
+          "named": true
+        },
+        {
           "type": "post_unary_expression",
           "named": true
         },
         {
           "type": "pre_unary_expression",
+          "named": true
+        },
+        {
+          "type": "scoped_destructor_name",
+          "named": true
+        },
+        {
+          "type": "scoped_name",
+          "named": true
+        },
+        {
+          "type": "scoped_operator_name",
           "named": true
         },
         {
@@ -3056,8 +5450,81 @@
         {
           "type": "sizeof_variadic_expression",
           "named": true
+        },
+        {
+          "type": "string",
+          "named": true
+        },
+        {
+          "type": "this",
+          "named": true
         }
       ]
+    }
+  },
+  {
+    "type": "object_macro_body",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "character",
+          "named": true
+        },
+        {
+          "type": "float",
+          "named": true
+        },
+        {
+          "type": "identifier_token",
+          "named": true
+        },
+        {
+          "type": "integer",
+          "named": true
+        },
+        {
+          "type": "line_continuation",
+          "named": true
+        },
+        {
+          "type": "preprocessor_operator_token",
+          "named": true
+        },
+        {
+          "type": "string",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "object_macro_define_directive",
+    "named": true,
+    "fields": {
+      "body": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "object_macro_body",
+            "named": true
+          }
+        ]
+      },
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "name",
+            "named": true
+          }
+        ]
+      }
     }
   },
   {
@@ -3096,7 +5563,28 @@
   {
     "type": "parameter",
     "named": true,
-    "fields": {},
+    "fields": {
+      "declarator": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "parenthesized_variable_declarator",
+            "named": true
+          }
+        ]
+      },
+      "name": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "name",
+            "named": true
+          }
+        ]
+      }
+    },
     "children": {
       "multiple": true,
       "required": true,
@@ -3130,14 +5618,6 @@
           "named": true
         },
         {
-          "type": "name",
-          "named": true
-        },
-        {
-          "type": "parenthesized_variable_declarator",
-          "named": true
-        },
-        {
           "type": "pointer_modifier",
           "named": true
         },
@@ -3154,7 +5634,7 @@
           "named": true
         },
         {
-          "type": "primitive_type_name",
+          "type": "primitive_type",
           "named": true
         },
         {
@@ -3220,12 +5700,23 @@
     }
   },
   {
-    "type": "parenthesized_function_declarator",
+    "type": "parenthesized_abstract_declarator",
     "named": true,
-    "fields": {},
+    "fields": {
+      "declarator": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "parenthesized_abstract_declarator",
+            "named": true
+          }
+        ]
+      }
+    },
     "children": {
       "multiple": true,
-      "required": true,
+      "required": false,
       "types": [
         {
           "type": "array_type_modifier",
@@ -3236,11 +5727,202 @@
           "named": true
         },
         {
+          "type": "pointer_modifier",
+          "named": true
+        },
+        {
+          "type": "pointer_to_member_modifier",
+          "named": true
+        },
+        {
+          "type": "reference_modifier",
+          "named": true
+        },
+        {
+          "type": "rvalue_reference_modifier",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "parenthesized_expression",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "alignof_expression",
+          "named": true
+        },
+        {
+          "type": "assignment_expression",
+          "named": true
+        },
+        {
+          "type": "binary_expression",
+          "named": true
+        },
+        {
+          "type": "boolean",
+          "named": true
+        },
+        {
+          "type": "c_cast_expression",
+          "named": true
+        },
+        {
+          "type": "call_expression",
+          "named": true
+        },
+        {
+          "type": "cast_expression",
+          "named": true
+        },
+        {
+          "type": "character",
+          "named": true
+        },
+        {
+          "type": "conditional_expression",
+          "named": true
+        },
+        {
+          "type": "constructor_expression",
+          "named": true
+        },
+        {
+          "type": "delete_expression",
+          "named": true
+        },
+        {
+          "type": "destructor_name",
+          "named": true
+        },
+        {
+          "type": "float",
+          "named": true
+        },
+        {
+          "type": "index_expression",
+          "named": true
+        },
+        {
+          "type": "integer",
+          "named": true
+        },
+        {
+          "type": "lambda_expression",
+          "named": true
+        },
+        {
+          "type": "member_expression",
+          "named": true
+        },
+        {
           "type": "name",
           "named": true
         },
         {
-          "type": "parenthesized_function_declarator",
+          "type": "new_expression",
+          "named": true
+        },
+        {
+          "type": "noexcept_expression",
+          "named": true
+        },
+        {
+          "type": "nullptr",
+          "named": true
+        },
+        {
+          "type": "operator_name",
+          "named": true
+        },
+        {
+          "type": "parenthesized_expression",
+          "named": true
+        },
+        {
+          "type": "post_unary_expression",
+          "named": true
+        },
+        {
+          "type": "pre_unary_expression",
+          "named": true
+        },
+        {
+          "type": "scoped_destructor_name",
+          "named": true
+        },
+        {
+          "type": "scoped_name",
+          "named": true
+        },
+        {
+          "type": "scoped_operator_name",
+          "named": true
+        },
+        {
+          "type": "sizeof_expression",
+          "named": true
+        },
+        {
+          "type": "sizeof_type_expression",
+          "named": true
+        },
+        {
+          "type": "sizeof_variadic_expression",
+          "named": true
+        },
+        {
+          "type": "string",
+          "named": true
+        },
+        {
+          "type": "this",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "parenthesized_function_declarator",
+    "named": true,
+    "fields": {
+      "declarator": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "parenthesized_function_declarator",
+            "named": true
+          }
+        ]
+      },
+      "name": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "name",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "array_type_modifier",
+          "named": true
+        },
+        {
+          "type": "function_type_modifier",
           "named": true
         },
         {
@@ -3269,19 +5951,32 @@
   {
     "type": "parenthesized_variable_declarator",
     "named": true,
-    "fields": {},
+    "fields": {
+      "declarator": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "parenthesized_variable_declarator",
+            "named": true
+          }
+        ]
+      },
+      "name": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "name",
+            "named": true
+          }
+        ]
+      }
+    },
     "children": {
       "multiple": true,
-      "required": true,
+      "required": false,
       "types": [
-        {
-          "type": "name",
-          "named": true
-        },
-        {
-          "type": "parenthesized_variable_declarator",
-          "named": true
-        },
         {
           "type": "pointer_modifier",
           "named": true
@@ -3366,7 +6061,7 @@
           "named": true
         },
         {
-          "type": "primitive_type_name",
+          "type": "primitive_type",
           "named": true
         },
         {
@@ -3445,7 +6140,7 @@
           "named": true
         },
         {
-          "type": "primitive_type_name",
+          "type": "primitive_type",
           "named": true
         },
         {
@@ -3504,11 +6199,23 @@
           "named": true
         },
         {
+          "type": "boolean",
+          "named": true
+        },
+        {
+          "type": "c_cast_expression",
+          "named": true
+        },
+        {
           "type": "call_expression",
           "named": true
         },
         {
           "type": "cast_expression",
+          "named": true
+        },
+        {
+          "type": "character",
           "named": true
         },
         {
@@ -3524,11 +6231,31 @@
           "named": true
         },
         {
+          "type": "destructor_name",
+          "named": true
+        },
+        {
+          "type": "float",
+          "named": true
+        },
+        {
           "type": "index_expression",
           "named": true
         },
         {
+          "type": "integer",
+          "named": true
+        },
+        {
+          "type": "lambda_expression",
+          "named": true
+        },
+        {
           "type": "member_expression",
+          "named": true
+        },
+        {
+          "type": "name",
           "named": true
         },
         {
@@ -3540,11 +6267,35 @@
           "named": true
         },
         {
+          "type": "nullptr",
+          "named": true
+        },
+        {
+          "type": "operator_name",
+          "named": true
+        },
+        {
+          "type": "parenthesized_expression",
+          "named": true
+        },
+        {
           "type": "post_unary_expression",
           "named": true
         },
         {
           "type": "pre_unary_expression",
+          "named": true
+        },
+        {
+          "type": "scoped_destructor_name",
+          "named": true
+        },
+        {
+          "type": "scoped_name",
+          "named": true
+        },
+        {
+          "type": "scoped_operator_name",
           "named": true
         },
         {
@@ -3557,6 +6308,53 @@
         },
         {
           "type": "sizeof_variadic_expression",
+          "named": true
+        },
+        {
+          "type": "string",
+          "named": true
+        },
+        {
+          "type": "this",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "pragma_directive",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "character",
+          "named": true
+        },
+        {
+          "type": "float",
+          "named": true
+        },
+        {
+          "type": "identifier_token",
+          "named": true
+        },
+        {
+          "type": "integer",
+          "named": true
+        },
+        {
+          "type": "line_continuation",
+          "named": true
+        },
+        {
+          "type": "preprocessor_operator_token",
+          "named": true
+        },
+        {
+          "type": "string",
           "named": true
         }
       ]
@@ -3583,11 +6381,23 @@
           "named": true
         },
         {
+          "type": "boolean",
+          "named": true
+        },
+        {
+          "type": "c_cast_expression",
+          "named": true
+        },
+        {
           "type": "call_expression",
           "named": true
         },
         {
           "type": "cast_expression",
+          "named": true
+        },
+        {
+          "type": "character",
           "named": true
         },
         {
@@ -3603,11 +6413,31 @@
           "named": true
         },
         {
+          "type": "destructor_name",
+          "named": true
+        },
+        {
+          "type": "float",
+          "named": true
+        },
+        {
           "type": "index_expression",
           "named": true
         },
         {
+          "type": "integer",
+          "named": true
+        },
+        {
+          "type": "lambda_expression",
+          "named": true
+        },
+        {
           "type": "member_expression",
+          "named": true
+        },
+        {
+          "type": "name",
           "named": true
         },
         {
@@ -3619,11 +6449,35 @@
           "named": true
         },
         {
+          "type": "nullptr",
+          "named": true
+        },
+        {
+          "type": "operator_name",
+          "named": true
+        },
+        {
+          "type": "parenthesized_expression",
+          "named": true
+        },
+        {
           "type": "post_unary_expression",
           "named": true
         },
         {
           "type": "pre_unary_expression",
+          "named": true
+        },
+        {
+          "type": "scoped_destructor_name",
+          "named": true
+        },
+        {
+          "type": "scoped_name",
+          "named": true
+        },
+        {
+          "type": "scoped_operator_name",
           "named": true
         },
         {
@@ -3637,9 +6491,27 @@
         {
           "type": "sizeof_variadic_expression",
           "named": true
+        },
+        {
+          "type": "string",
+          "named": true
+        },
+        {
+          "type": "this",
+          "named": true
         }
       ]
     }
+  },
+  {
+    "type": "preprocessor_operator_token",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "primitive_type",
+    "named": true,
+    "fields": {}
   },
   {
     "type": "primitive_type_modifier",
@@ -3647,7 +6519,22 @@
     "fields": {}
   },
   {
-    "type": "primitive_type_name",
+    "type": "reference_capture",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "name",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "reference_capture_default",
     "named": true,
     "fields": {}
   },
@@ -3693,7 +6580,7 @@
           "named": true
         },
         {
-          "type": "primitive_type_name",
+          "type": "primitive_type",
           "named": true
         },
         {
@@ -3752,11 +6639,23 @@
           "named": true
         },
         {
+          "type": "boolean",
+          "named": true
+        },
+        {
+          "type": "c_cast_expression",
+          "named": true
+        },
+        {
           "type": "call_expression",
           "named": true
         },
         {
           "type": "cast_expression",
+          "named": true
+        },
+        {
+          "type": "character",
           "named": true
         },
         {
@@ -3772,6 +6671,14 @@
           "named": true
         },
         {
+          "type": "destructor_name",
+          "named": true
+        },
+        {
+          "type": "float",
+          "named": true
+        },
+        {
           "type": "index_expression",
           "named": true
         },
@@ -3780,7 +6687,19 @@
           "named": true
         },
         {
+          "type": "integer",
+          "named": true
+        },
+        {
+          "type": "lambda_expression",
+          "named": true
+        },
+        {
           "type": "member_expression",
+          "named": true
+        },
+        {
+          "type": "name",
           "named": true
         },
         {
@@ -3792,11 +6711,35 @@
           "named": true
         },
         {
+          "type": "nullptr",
+          "named": true
+        },
+        {
+          "type": "operator_name",
+          "named": true
+        },
+        {
+          "type": "parenthesized_expression",
+          "named": true
+        },
+        {
           "type": "post_unary_expression",
           "named": true
         },
         {
           "type": "pre_unary_expression",
+          "named": true
+        },
+        {
+          "type": "scoped_destructor_name",
+          "named": true
+        },
+        {
+          "type": "scoped_name",
+          "named": true
+        },
+        {
+          "type": "scoped_operator_name",
           "named": true
         },
         {
@@ -3809,6 +6752,14 @@
         },
         {
           "type": "sizeof_variadic_expression",
+          "named": true
+        },
+        {
+          "type": "string",
+          "named": true
+        },
+        {
+          "type": "this",
           "named": true
         }
       ]
@@ -3856,7 +6807,7 @@
           "named": true
         },
         {
-          "type": "primitive_type_name",
+          "type": "primitive_type",
           "named": true
         },
         {
@@ -4059,7 +7010,7 @@
           "named": true
         },
         {
-          "type": "primitive_type_name",
+          "type": "primitive_type",
           "named": true
         },
         {
@@ -4110,7 +7061,7 @@
           "named": true
         },
         {
-          "type": "primitive_type_name",
+          "type": "primitive_type",
           "named": true
         },
         {
@@ -4161,11 +7112,23 @@
           "named": true
         },
         {
+          "type": "boolean",
+          "named": true
+        },
+        {
+          "type": "c_cast_expression",
+          "named": true
+        },
+        {
           "type": "call_expression",
           "named": true
         },
         {
           "type": "cast_expression",
+          "named": true
+        },
+        {
+          "type": "character",
           "named": true
         },
         {
@@ -4181,11 +7144,31 @@
           "named": true
         },
         {
+          "type": "destructor_name",
+          "named": true
+        },
+        {
+          "type": "float",
+          "named": true
+        },
+        {
           "type": "index_expression",
           "named": true
         },
         {
+          "type": "integer",
+          "named": true
+        },
+        {
+          "type": "lambda_expression",
+          "named": true
+        },
+        {
           "type": "member_expression",
+          "named": true
+        },
+        {
+          "type": "name",
           "named": true
         },
         {
@@ -4197,11 +7180,35 @@
           "named": true
         },
         {
+          "type": "nullptr",
+          "named": true
+        },
+        {
+          "type": "operator_name",
+          "named": true
+        },
+        {
+          "type": "parenthesized_expression",
+          "named": true
+        },
+        {
           "type": "post_unary_expression",
           "named": true
         },
         {
           "type": "pre_unary_expression",
+          "named": true
+        },
+        {
+          "type": "scoped_destructor_name",
+          "named": true
+        },
+        {
+          "type": "scoped_name",
+          "named": true
+        },
+        {
+          "type": "scoped_operator_name",
           "named": true
         },
         {
@@ -4214,6 +7221,14 @@
         },
         {
           "type": "sizeof_variadic_expression",
+          "named": true
+        },
+        {
+          "type": "string",
+          "named": true
+        },
+        {
+          "type": "this",
           "named": true
         }
       ]
@@ -4264,7 +7279,7 @@
           "named": true
         },
         {
-          "type": "primitive_type_name",
+          "type": "primitive_type",
           "named": true
         },
         {
@@ -4348,6 +7363,25 @@
     }
   },
   {
+    "type": "string",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "escape_sequence",
+          "named": true
+        },
+        {
+          "type": "string_content",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "string_token",
     "named": true,
     "fields": {},
@@ -4356,10 +7390,30 @@
       "required": false,
       "types": [
         {
+          "type": "escape_sequence",
+          "named": true
+        },
+        {
           "type": "string_content",
           "named": true
         }
       ]
+    }
+  },
+  {
+    "type": "stringified_parameter",
+    "named": true,
+    "fields": {
+      "parameter": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      }
     }
   },
   {
@@ -4387,7 +7441,15 @@
           "named": true
         },
         {
+          "type": "boolean",
+          "named": true
+        },
+        {
           "type": "break_statement",
+          "named": true
+        },
+        {
+          "type": "c_cast_expression",
           "named": true
         },
         {
@@ -4396,6 +7458,10 @@
         },
         {
           "type": "cast_expression",
+          "named": true
+        },
+        {
+          "type": "character",
           "named": true
         },
         {
@@ -4415,7 +7481,31 @@
           "named": true
         },
         {
+          "type": "destructor_name",
+          "named": true
+        },
+        {
+          "type": "elif_directive",
+          "named": true
+        },
+        {
+          "type": "elifdef_directive",
+          "named": true
+        },
+        {
+          "type": "elifndef_directive",
+          "named": true
+        },
+        {
+          "type": "else_directive",
+          "named": true
+        },
+        {
           "type": "empty_statement",
+          "named": true
+        },
+        {
+          "type": "endif_directive",
           "named": true
         },
         {
@@ -4423,7 +7513,15 @@
           "named": true
         },
         {
+          "type": "float",
+          "named": true
+        },
+        {
           "type": "for_statement",
+          "named": true
+        },
+        {
+          "type": "function_macro_define_directive",
           "named": true
         },
         {
@@ -4431,7 +7529,23 @@
           "named": true
         },
         {
+          "type": "if_directive",
+          "named": true
+        },
+        {
           "type": "if_statement",
+          "named": true
+        },
+        {
+          "type": "ifdef_directive",
+          "named": true
+        },
+        {
+          "type": "ifndef_directive",
+          "named": true
+        },
+        {
+          "type": "include_directive",
           "named": true
         },
         {
@@ -4439,11 +7553,23 @@
           "named": true
         },
         {
+          "type": "integer",
+          "named": true
+        },
+        {
           "type": "labeled_statement",
           "named": true
         },
         {
+          "type": "lambda_expression",
+          "named": true
+        },
+        {
           "type": "member_expression",
+          "named": true
+        },
+        {
+          "type": "name",
           "named": true
         },
         {
@@ -4455,7 +7581,27 @@
           "named": true
         },
         {
+          "type": "nullptr",
+          "named": true
+        },
+        {
+          "type": "object_macro_define_directive",
+          "named": true
+        },
+        {
+          "type": "operator_name",
+          "named": true
+        },
+        {
+          "type": "parenthesized_expression",
+          "named": true
+        },
+        {
           "type": "post_unary_expression",
+          "named": true
+        },
+        {
+          "type": "pragma_directive",
           "named": true
         },
         {
@@ -4464,6 +7610,18 @@
         },
         {
           "type": "return_statement",
+          "named": true
+        },
+        {
+          "type": "scoped_destructor_name",
+          "named": true
+        },
+        {
+          "type": "scoped_name",
+          "named": true
+        },
+        {
+          "type": "scoped_operator_name",
           "named": true
         },
         {
@@ -4479,7 +7637,15 @@
           "named": true
         },
         {
+          "type": "string",
+          "named": true
+        },
+        {
           "type": "switch_statement",
+          "named": true
+        },
+        {
+          "type": "this",
           "named": true
         },
         {
@@ -4487,7 +7653,19 @@
           "named": true
         },
         {
+          "type": "undef_directive",
+          "named": true
+        },
+        {
+          "type": "using_declaration",
+          "named": true
+        },
+        {
           "type": "variable_declaration",
+          "named": true
+        },
+        {
+          "type": "variadic_function_macro_define_directive",
           "named": true
         },
         {
@@ -4530,11 +7708,23 @@
           "named": true
         },
         {
+          "type": "boolean",
+          "named": true
+        },
+        {
+          "type": "c_cast_expression",
+          "named": true
+        },
+        {
           "type": "call_expression",
           "named": true
         },
         {
           "type": "cast_expression",
+          "named": true
+        },
+        {
+          "type": "character",
           "named": true
         },
         {
@@ -4558,11 +7748,27 @@
           "named": true
         },
         {
+          "type": "destructor_name",
+          "named": true
+        },
+        {
+          "type": "float",
+          "named": true
+        },
+        {
           "type": "function_type",
           "named": true
         },
         {
           "type": "index_expression",
+          "named": true
+        },
+        {
+          "type": "integer",
+          "named": true
+        },
+        {
+          "type": "lambda_expression",
           "named": true
         },
         {
@@ -4574,11 +7780,27 @@
           "named": true
         },
         {
+          "type": "name",
+          "named": true
+        },
+        {
           "type": "new_expression",
           "named": true
         },
         {
           "type": "noexcept_expression",
+          "named": true
+        },
+        {
+          "type": "nullptr",
+          "named": true
+        },
+        {
+          "type": "operator_name",
+          "named": true
+        },
+        {
+          "type": "parenthesized_expression",
           "named": true
         },
         {
@@ -4598,7 +7820,7 @@
           "named": true
         },
         {
-          "type": "primitive_type_name",
+          "type": "primitive_type",
           "named": true
         },
         {
@@ -4607,6 +7829,18 @@
         },
         {
           "type": "rvalue_reference_type",
+          "named": true
+        },
+        {
+          "type": "scoped_destructor_name",
+          "named": true
+        },
+        {
+          "type": "scoped_name",
+          "named": true
+        },
+        {
+          "type": "scoped_operator_name",
           "named": true
         },
         {
@@ -4638,6 +7872,14 @@
           "named": true
         },
         {
+          "type": "string",
+          "named": true
+        },
+        {
+          "type": "this",
+          "named": true
+        },
+        {
           "type": "type_name",
           "named": true
         },
@@ -4662,6 +7904,21 @@
         },
         {
           "type": "type_name",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "this_capture",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "this",
           "named": true
         }
       ]
@@ -4712,7 +7969,7 @@
           "named": true
         },
         {
-          "type": "primitive_type_name",
+          "type": "primitive_type",
           "named": true
         },
         {
@@ -4760,7 +8017,27 @@
       "required": false,
       "types": [
         {
+          "type": "elif_directive",
+          "named": true
+        },
+        {
+          "type": "elifdef_directive",
+          "named": true
+        },
+        {
+          "type": "elifndef_directive",
+          "named": true
+        },
+        {
+          "type": "else_directive",
+          "named": true
+        },
+        {
           "type": "empty_declaration",
+          "named": true
+        },
+        {
+          "type": "endif_directive",
           "named": true
         },
         {
@@ -4768,7 +8045,47 @@
           "named": true
         },
         {
+          "type": "function_macro_define_directive",
+          "named": true
+        },
+        {
+          "type": "if_directive",
+          "named": true
+        },
+        {
+          "type": "ifdef_directive",
+          "named": true
+        },
+        {
+          "type": "ifndef_directive",
+          "named": true
+        },
+        {
+          "type": "include_directive",
+          "named": true
+        },
+        {
+          "type": "object_macro_define_directive",
+          "named": true
+        },
+        {
+          "type": "pragma_directive",
+          "named": true
+        },
+        {
+          "type": "undef_directive",
+          "named": true
+        },
+        {
+          "type": "using_declaration",
+          "named": true
+        },
+        {
           "type": "variable_declaration",
+          "named": true
+        },
+        {
+          "type": "variadic_function_macro_define_directive",
           "named": true
         }
       ]
@@ -4777,7 +8094,28 @@
   {
     "type": "try_block",
     "named": true,
-    "fields": {},
+    "fields": {
+      "declarator": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "parenthesized_variable_declarator",
+            "named": true
+          }
+        ]
+      },
+      "name": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "name",
+            "named": true
+          }
+        ]
+      }
+    },
     "children": {
       "multiple": true,
       "required": false,
@@ -4815,7 +8153,27 @@
           "named": true
         },
         {
+          "type": "elif_directive",
+          "named": true
+        },
+        {
+          "type": "elifdef_directive",
+          "named": true
+        },
+        {
+          "type": "elifndef_directive",
+          "named": true
+        },
+        {
+          "type": "else_directive",
+          "named": true
+        },
+        {
           "type": "empty_statement",
+          "named": true
+        },
+        {
+          "type": "endif_directive",
           "named": true
         },
         {
@@ -4827,6 +8185,10 @@
           "named": true
         },
         {
+          "type": "function_macro_define_directive",
+          "named": true
+        },
+        {
           "type": "function_type",
           "named": true
         },
@@ -4835,7 +8197,23 @@
           "named": true
         },
         {
+          "type": "if_directive",
+          "named": true
+        },
+        {
           "type": "if_statement",
+          "named": true
+        },
+        {
+          "type": "ifdef_directive",
+          "named": true
+        },
+        {
+          "type": "ifndef_directive",
+          "named": true
+        },
+        {
+          "type": "include_directive",
           "named": true
         },
         {
@@ -4847,11 +8225,7 @@
           "named": true
         },
         {
-          "type": "name",
-          "named": true
-        },
-        {
-          "type": "parenthesized_variable_declarator",
+          "type": "object_macro_define_directive",
           "named": true
         },
         {
@@ -4871,7 +8245,11 @@
           "named": true
         },
         {
-          "type": "primitive_type_name",
+          "type": "pragma_directive",
+          "named": true
+        },
+        {
+          "type": "primitive_type",
           "named": true
         },
         {
@@ -4927,11 +8305,23 @@
           "named": true
         },
         {
+          "type": "undef_directive",
+          "named": true
+        },
+        {
           "type": "unsigned_type",
           "named": true
         },
         {
+          "type": "using_declaration",
+          "named": true
+        },
+        {
           "type": "variable_declaration",
+          "named": true
+        },
+        {
+          "type": "variadic_function_macro_define_directive",
           "named": true
         },
         {
@@ -4981,6 +8371,22 @@
     }
   },
   {
+    "type": "undef_directive",
+    "named": true,
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "name",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
     "type": "unsigned_type",
     "named": true,
     "fields": {},
@@ -5001,7 +8407,7 @@
           "named": true
         },
         {
-          "type": "primitive_type_name",
+          "type": "primitive_type",
           "named": true
         },
         {
@@ -5032,12 +8438,134 @@
     }
   },
   {
-    "type": "variable_declaration",
+    "type": "using_declaration",
     "named": true,
     "fields": {},
     "children": {
-      "multiple": true,
+      "multiple": false,
       "required": true,
+      "types": [
+        {
+          "type": "destructor_name",
+          "named": true
+        },
+        {
+          "type": "name",
+          "named": true
+        },
+        {
+          "type": "operator_name",
+          "named": true
+        },
+        {
+          "type": "scoped_destructor_name",
+          "named": true
+        },
+        {
+          "type": "scoped_name",
+          "named": true
+        },
+        {
+          "type": "scoped_operator_name",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "value_capture",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "name",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "value_capture_default",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "variable_declaration",
+    "named": true,
+    "fields": {
+      "declarator": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "parenthesized_variable_declarator",
+            "named": true
+          }
+        ]
+      },
+      "name": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "name",
+            "named": true
+          }
+        ]
+      },
+      "type": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "const_type",
+            "named": true
+          },
+          {
+            "type": "decltype",
+            "named": true
+          },
+          {
+            "type": "long_type",
+            "named": true
+          },
+          {
+            "type": "primitive_type",
+            "named": true
+          },
+          {
+            "type": "scoped_type_name",
+            "named": true
+          },
+          {
+            "type": "short_type",
+            "named": true
+          },
+          {
+            "type": "signed_type",
+            "named": true
+          },
+          {
+            "type": "specified_type_name",
+            "named": true
+          },
+          {
+            "type": "type_name",
+            "named": true
+          },
+          {
+            "type": "unsigned_type",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": true,
+      "required": false,
       "types": [
         {
           "type": "alignas_modifier",
@@ -5060,11 +8588,23 @@
           "named": true
         },
         {
+          "type": "boolean",
+          "named": true
+        },
+        {
+          "type": "c_cast_expression",
+          "named": true
+        },
+        {
           "type": "call_expression",
           "named": true
         },
         {
           "type": "cast_expression",
+          "named": true
+        },
+        {
+          "type": "character",
           "named": true
         },
         {
@@ -5088,11 +8628,19 @@
           "named": true
         },
         {
+          "type": "destructor_name",
+          "named": true
+        },
+        {
           "type": "explicit_modifier",
           "named": true
         },
         {
           "type": "extern_modifier",
+          "named": true
+        },
+        {
+          "type": "float",
           "named": true
         },
         {
@@ -5105,6 +8653,14 @@
         },
         {
           "type": "inline_modifier",
+          "named": true
+        },
+        {
+          "type": "integer",
+          "named": true
+        },
+        {
+          "type": "lambda_expression",
           "named": true
         },
         {
@@ -5128,7 +8684,15 @@
           "named": true
         },
         {
-          "type": "parenthesized_variable_declarator",
+          "type": "nullptr",
+          "named": true
+        },
+        {
+          "type": "operator_name",
+          "named": true
+        },
+        {
+          "type": "parenthesized_expression",
           "named": true
         },
         {
@@ -5148,11 +8712,11 @@
           "named": true
         },
         {
-          "type": "primitive_type_modifier",
+          "type": "primitive_type",
           "named": true
         },
         {
-          "type": "primitive_type_name",
+          "type": "primitive_type_modifier",
           "named": true
         },
         {
@@ -5169,6 +8733,18 @@
         },
         {
           "type": "scope",
+          "named": true
+        },
+        {
+          "type": "scoped_destructor_name",
+          "named": true
+        },
+        {
+          "type": "scoped_name",
+          "named": true
+        },
+        {
+          "type": "scoped_operator_name",
           "named": true
         },
         {
@@ -5196,6 +8772,14 @@
           "named": true
         },
         {
+          "type": "string",
+          "named": true
+        },
+        {
+          "type": "this",
+          "named": true
+        },
+        {
           "type": "thread_local_modifier",
           "named": true
         },
@@ -5213,6 +8797,62 @@
         }
       ]
     }
+  },
+  {
+    "type": "variadic_function_macro_define_directive",
+    "named": true,
+    "fields": {
+      "body": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "function_macro_body",
+            "named": true
+          }
+        ]
+      },
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "name",
+            "named": true
+          }
+        ]
+      },
+      "parameters": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "variadic_macro_parameters",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "variadic_macro_parameters",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "macro_parameter",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "volatile_modifier",
+    "named": true,
+    "fields": {}
   },
   {
     "type": "while_statement",
@@ -5239,7 +8879,15 @@
           "named": true
         },
         {
+          "type": "boolean",
+          "named": true
+        },
+        {
           "type": "break_statement",
+          "named": true
+        },
+        {
+          "type": "c_cast_expression",
           "named": true
         },
         {
@@ -5248,6 +8896,10 @@
         },
         {
           "type": "cast_expression",
+          "named": true
+        },
+        {
+          "type": "character",
           "named": true
         },
         {
@@ -5267,7 +8919,31 @@
           "named": true
         },
         {
+          "type": "destructor_name",
+          "named": true
+        },
+        {
+          "type": "elif_directive",
+          "named": true
+        },
+        {
+          "type": "elifdef_directive",
+          "named": true
+        },
+        {
+          "type": "elifndef_directive",
+          "named": true
+        },
+        {
+          "type": "else_directive",
+          "named": true
+        },
+        {
           "type": "empty_statement",
+          "named": true
+        },
+        {
+          "type": "endif_directive",
           "named": true
         },
         {
@@ -5275,7 +8951,15 @@
           "named": true
         },
         {
+          "type": "float",
+          "named": true
+        },
+        {
           "type": "for_statement",
+          "named": true
+        },
+        {
+          "type": "function_macro_define_directive",
           "named": true
         },
         {
@@ -5283,7 +8967,23 @@
           "named": true
         },
         {
+          "type": "if_directive",
+          "named": true
+        },
+        {
           "type": "if_statement",
+          "named": true
+        },
+        {
+          "type": "ifdef_directive",
+          "named": true
+        },
+        {
+          "type": "ifndef_directive",
+          "named": true
+        },
+        {
+          "type": "include_directive",
           "named": true
         },
         {
@@ -5291,11 +8991,23 @@
           "named": true
         },
         {
+          "type": "integer",
+          "named": true
+        },
+        {
           "type": "labeled_statement",
           "named": true
         },
         {
+          "type": "lambda_expression",
+          "named": true
+        },
+        {
           "type": "member_expression",
+          "named": true
+        },
+        {
+          "type": "name",
           "named": true
         },
         {
@@ -5307,7 +9019,27 @@
           "named": true
         },
         {
+          "type": "nullptr",
+          "named": true
+        },
+        {
+          "type": "object_macro_define_directive",
+          "named": true
+        },
+        {
+          "type": "operator_name",
+          "named": true
+        },
+        {
+          "type": "parenthesized_expression",
+          "named": true
+        },
+        {
           "type": "post_unary_expression",
+          "named": true
+        },
+        {
+          "type": "pragma_directive",
           "named": true
         },
         {
@@ -5316,6 +9048,18 @@
         },
         {
           "type": "return_statement",
+          "named": true
+        },
+        {
+          "type": "scoped_destructor_name",
+          "named": true
+        },
+        {
+          "type": "scoped_name",
+          "named": true
+        },
+        {
+          "type": "scoped_operator_name",
           "named": true
         },
         {
@@ -5331,7 +9075,15 @@
           "named": true
         },
         {
+          "type": "string",
+          "named": true
+        },
+        {
           "type": "switch_statement",
+          "named": true
+        },
+        {
+          "type": "this",
           "named": true
         },
         {
@@ -5339,7 +9091,19 @@
           "named": true
         },
         {
+          "type": "undef_directive",
+          "named": true
+        },
+        {
+          "type": "using_declaration",
+          "named": true
+        },
+        {
           "type": "variable_declaration",
+          "named": true
+        },
+        {
+          "type": "variadic_function_macro_define_directive",
           "named": true
         },
         {
@@ -5348,6 +9112,10 @@
         }
       ]
     }
+  },
+  {
+    "type": "\r?\n",
+    "named": false
   },
   {
     "type": "!",
@@ -5538,6 +9306,14 @@
     "named": false
   },
   {
+    "type": "\\\"",
+    "named": false
+  },
+  {
+    "type": "\\\\",
+    "named": false
+  },
+  {
     "type": "]",
     "named": false
   },
@@ -5598,7 +9374,16 @@
     "named": false
   },
   {
+    "type": "comment",
+    "named": true,
+    "extra": true
+  },
+  {
     "type": "const",
+    "named": false
+  },
+  {
+    "type": "const_cast",
     "named": false
   },
   {
@@ -5614,6 +9399,10 @@
     "named": false
   },
   {
+    "type": "define",
+    "named": false
+  },
+  {
     "type": "delete",
     "named": false
   },
@@ -5626,7 +9415,27 @@
     "named": false
   },
   {
+    "type": "dynamic_cast",
+    "named": false
+  },
+  {
+    "type": "elif",
+    "named": false
+  },
+  {
+    "type": "elifdef",
+    "named": false
+  },
+  {
+    "type": "elifndef",
+    "named": false
+  },
+  {
     "type": "else",
+    "named": false
+  },
+  {
+    "type": "endif",
     "named": false
   },
   {
@@ -5642,8 +9451,16 @@
     "named": true
   },
   {
+    "type": "false",
+    "named": false
+  },
+  {
     "type": "float",
     "named": false
+  },
+  {
+    "type": "float",
+    "named": true
   },
   {
     "type": "float_token",
@@ -5666,6 +9483,22 @@
     "named": false
   },
   {
+    "type": "ifdef",
+    "named": false
+  },
+  {
+    "type": "ifndef",
+    "named": false
+  },
+  {
+    "type": "include",
+    "named": false
+  },
+  {
+    "type": "include_path_content",
+    "named": true
+  },
+  {
     "type": "inline_modifier",
     "named": true
   },
@@ -5674,7 +9507,15 @@
     "named": false
   },
   {
+    "type": "integer",
+    "named": true
+  },
+  {
     "type": "integer_token",
+    "named": true
+  },
+  {
+    "type": "line_continuation",
     "named": true
   },
   {
@@ -5686,6 +9527,10 @@
     "named": true
   },
   {
+    "type": "namespace",
+    "named": false
+  },
+  {
     "type": "new",
     "named": false
   },
@@ -5694,12 +9539,24 @@
     "named": false
   },
   {
+    "type": "nullptr",
+    "named": true
+  },
+  {
     "type": "operator",
+    "named": false
+  },
+  {
+    "type": "pragma",
     "named": false
   },
   {
     "type": "register_modifier",
     "named": true
+  },
+  {
+    "type": "reinterpret_cast",
+    "named": false
   },
   {
     "type": "return",
@@ -5715,6 +9572,10 @@
   },
   {
     "type": "sizeof",
+    "named": false
+  },
+  {
+    "type": "static_cast",
     "named": false
   },
   {
@@ -5738,8 +9599,16 @@
     "named": false
   },
   {
+    "type": "this",
+    "named": true
+  },
+  {
     "type": "thread_local_modifier",
     "named": true
+  },
+  {
+    "type": "true",
+    "named": false
   },
   {
     "type": "try",
@@ -5747,6 +9616,10 @@
   },
   {
     "type": "typename",
+    "named": false
+  },
+  {
+    "type": "undef",
     "named": false
   },
   {
@@ -5758,6 +9631,10 @@
     "named": false
   },
   {
+    "type": "using",
+    "named": false
+  },
+  {
     "type": "virtual_modifier",
     "named": true
   },
@@ -5766,8 +9643,8 @@
     "named": false
   },
   {
-    "type": "volatile_modifier",
-    "named": true
+    "type": "volatile",
+    "named": false
   },
   {
     "type": "wchar_t",
