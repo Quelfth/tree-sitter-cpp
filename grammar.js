@@ -40,6 +40,7 @@ module.exports = grammar({
             'specific_name',
         ],
         [
+            'template',
             'proper_scope',
             'lone_scope',
         ],
@@ -57,10 +58,27 @@ module.exports = grammar({
         [$.signed_type, $.primitive_type_modifier],
         [$.unsigned_type, $.primitive_type_modifier],
         [$._type_root, $._weak_type],
+        [$._type_root, $.scoped_name],
         [$.scoped_name],
+        [$._simple_type_modifier, $.scoped_name],
+        [$.specified_type_name, $.scoped_name],
+        [$._weak_type, $._any_name],
+        [$._type_root, $._weak_type, $._any_name],
+        [$._type_root, $._any_name],
+        [$._type_root, $.scoped_name, $.scoped_operator_name, $.scoped_destructor_name],
+        [$._type_root, $.pointer_to_member_modifier, $.scoped_name],
+        [$._type_root, $.pointer_to_member_modifier],
+        [$._type_root, $.pointer_to_member_modifier, $.scoped_name, $.scoped_operator_name, $.scoped_destructor_name],
+        [$.template_operator_name, $._any_name],
+        [$.template_name, $._any_name],
+        [$.template_name, $._any_name, $.destructor_name],
+        [$.template_operator_name],
+        [$.template_name],
+        [$._type_root, $.template_name],
+        [$.class_declaration, $.type_specifier],
+        [$.class_declaration],
+        [$.type_parameter, $.type_specifier],
         [$.c_cast_expression, $.sizeof_type_expression],
-        [$.template_type_name, $.scoped_type_name],
-        [$._weak_type, $.destructor_name],
         [$.parameter, $.c_cast_expression],
         [$._expr, $.this_capture],
         [$.value_capture, $._any_name],
@@ -83,6 +101,7 @@ module.exports = grammar({
         )),
 
         _declaration: $ => choice(
+            $.class_declaration,
             $.function_declaration,
             $.empty_declaration,
             $._statement_declaration,
@@ -102,6 +121,8 @@ module.exports = grammar({
             $.using_declaration,
             $.variable_declaration,
         ),
+
+        _member_declaration: $ => $._declaration,
 
         empty_declaration: $ => seq(repeat($._attributes), ";"),
 
@@ -135,6 +156,49 @@ module.exports = grammar({
 
         _function_body: $ => $.block, // Add try body
 
+        class_declaration: $ => seq(
+            repeat($._attributes),
+            optional($.template_modifier),
+            repeat($._attributes),
+            field("kind", choice("class", "struct", "union")),
+            repeat($._attributes),
+            choice($.scoped_name, $.name),
+            optional("final"),
+            optional(
+                seq(
+                    ":",
+                    $.base_class, repeat(seq(",", $.base_class)), 
+                    optional("..."),
+                ),
+            ),
+            $.member_list,
+            ";",
+        ),
+
+        base_class: $ => seq(
+            repeat($._attributes),
+            optional(
+                choice(
+                    "virtual",
+                    $.visibility,
+                    seq("virtual", $.visibility),
+                    seq($.visibility, "virtual"),
+                ),
+            ),
+            $._type_root,
+        ),
+
+        visibility: $ => choice(
+            "private",
+            "protected",
+            "public",
+        ),
+
+        member_list: $ => seq(
+            $._lbrace,
+            repeat($._member_declaration),
+            $._rbrace,
+        ),
 
         variable_declaration: $ => seq(
             $._declaration_type_modifiers,
@@ -193,7 +257,7 @@ module.exports = grammar({
             repeat($._attributes),
         )),
 
-        _template_modifier: $ => seq(
+        template_modifier: $ => seq(
             "template",
             optional($.template_parameters),
         ),
@@ -220,8 +284,8 @@ module.exports = grammar({
             $._expr,
         ),
 
-        type_parameter: $ => choice(
-            optional($._template_modifier),
+        type_parameter: $ => seq(
+            optional($.template_modifier),
             choice("class", "typename"), optional("..."),
             optional($.name),
             optional(seq("=", $._type)),
@@ -601,8 +665,9 @@ module.exports = grammar({
             $.unsigned_type,
             $.const_type,
             $.specified_type_name,
-            $.scoped_type_name,
-            $.type_name,
+            $.scoped_name,
+            $.template_name,
+            $.name,
             $.decltype,
         ),
 
@@ -696,8 +761,8 @@ module.exports = grammar({
         )),
 
         _simple_type_modifier: $ => choice(
-            $.type_name,
-            $.scoped_type_name,
+            $.name,
+            $.scoped_name,
             $.primitive_type_modifier,
             $.primitive_type,
             $.decltype,
@@ -796,8 +861,9 @@ module.exports = grammar({
         ),
 
         _weak_type: $ => choice(
-            $.scoped_type_name,
-            $.type_name,
+            $.scoped_name,
+            $.template_name,
+            $.name,
             $.primitive_type,
             alias($.primitive_type_modifier, $.primitive_type),
             $.typename,
@@ -861,42 +927,38 @@ module.exports = grammar({
 
         specified_type_name: $ => seq(
             field("specifier", $.type_specifier),
-            field("name", choice($.type_name, $.scoped_type_name)),
+            field("name", choice($.name, $.scoped_name)),
         ),
 
         typename: $ => seq(
             "typename",
-            choice($.type_name, $.scoped_type_name),
+            choice($.name, $.scoped_name),
         ),
 
-        template_type_name: $ => seq(
-            optional("template"),
-            $.type_name,
-            $.template_arguments,
-        ),
-
-        template_name: $ => seq(
+        template_name: $ => prec('template', seq(
             optional("template"),
             $.name,
             $.template_arguments,
-        ),
+        )),
         
-        template_operator_name: $ => seq(
+        template_operator_name: $ => prec('template', seq(
             optional("template"),
             $.operator_name,
             $.template_arguments,
-        ),
+        )),
 
-        template_destructor_name: $ => seq(
-            optional("template"),
-            $.destructor_name,
-            $.template_arguments,
-        ),
+        //template_destructor_name: $ => seq(
+            //optional("template"),
+            //$.destructor_name,
+            //$.template_arguments,
+        //),
 
         _any_name: $ => choice(
             $.scoped_name,
+            $.template_name,
             $.name,
             $.scoped_operator_name,
+            $.template_operator_name,
             $.operator_name,
             $.scoped_destructor_name,
             $.destructor_name,
@@ -911,18 +973,17 @@ module.exports = grammar({
             ),
         )),
 
-        destructor_name: $ => seq($._tilde, $.type_name),
+        destructor_name: $ => prec(1, seq($._tilde, $.name)),
 
         scope: $ => prec('lone_scope', seq(optional(field("scope", choice($.name, $.scoped_name))), "::")),
 
-        scoped_type_name: $ => prec('proper_scope', seq(optional(field("scope", choice($.name, $.scoped_name))), "::", field("name", choice($.type_name, $.template_type_name)))),
-        scoped_name: $ => prec('proper_scope', seq(optional(field("scope", choice($.name, $.scoped_name))), "::", field("name", $.name))),
-        scoped_operator_name: $ => prec('proper_scope', seq(optional(field("scope", choice($.name, $.scoped_name))), "::", field("name", $.operator_name))),
-        scoped_destructor_name: $ => prec('proper_scope', seq(optional(field("scope", choice($.name, $.scoped_name))), "::", field("name", $.destructor_name))),
+        scoped_name: $ => prec('proper_scope', seq(optional(field("scope", choice($.name, $.scoped_name))), "::", field("name", choice($.name, $.template_name)))),
+        scoped_operator_name: $ => 
+            prec('proper_scope', seq(optional(field("scope", choice($.name, $.scoped_name))), "::", field("name", choice($.operator_name, $.template_operator_name)))),
+        scoped_destructor_name: $ => 
+            prec('proper_scope', seq(optional(field("scope", choice($.name, $.scoped_name))), "::", field("name", $.destructor_name))),
 
-        name: $ => prec('general_name', $.identifier),
-
-        type_name: $ => prec('specific_name', $.identifier),
+        name: $ => $.identifier,
 
         overloadable_operator: $ => prec.left(choice(
             "new",
