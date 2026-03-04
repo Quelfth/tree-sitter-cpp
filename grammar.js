@@ -59,6 +59,7 @@ module.exports = grammar({
         [$.unsigned_type, $.primitive_type_modifier],
         [$._type_root, $._weak_type],
         [$._type_root, $.scoped_name],
+        [$._type_root, $.scope, $.scoped_name],
         [$.scoped_name],
         [$._simple_type_modifier, $.scoped_name],
         [$.specified_type_name, $.scoped_name],
@@ -67,8 +68,11 @@ module.exports = grammar({
         [$._type_root, $._any_name],
         [$._type_root, $.scoped_name, $.scoped_operator_name, $.scoped_destructor_name],
         [$._type_root, $.pointer_to_member_modifier, $.scoped_name],
+        [$._type_root, $.pointer_to_member_modifier, $.scoped_name, $.scope],
         [$._type_root, $.pointer_to_member_modifier],
         [$._type_root, $.pointer_to_member_modifier, $.scoped_name, $.scoped_operator_name, $.scoped_destructor_name],
+        [$._type_root, $._constructor_declarator],
+        [$.constructor_declaration],
         [$.template_operator_name, $._any_name],
         [$.template_name, $._any_name],
         [$.template_name, $._any_name, $.destructor_name],
@@ -103,6 +107,7 @@ module.exports = grammar({
         _declaration: $ => choice(
             $.class_declaration,
             $.function_declaration,
+            $.operator_declaration,
             $.empty_declaration,
             $._statement_declaration,
         ),
@@ -116,13 +121,22 @@ module.exports = grammar({
             ";",
         ),
 
+        visibility_declaration: $ => seq(
+            $.visibility,
+            ":",
+        ),
+
         _statement_declaration: $ => choice(
             $._preprocessor_directive,
             $.using_declaration,
             $.variable_declaration,
         ),
 
-        _member_declaration: $ => $._declaration,
+        _member_declaration: $ => choice(
+            $.constructor_declaration,
+            $.visibility_declaration,
+            $._declaration,
+        ),
 
         empty_declaration: $ => seq(repeat($._attributes), ";"),
 
@@ -134,11 +148,7 @@ module.exports = grammar({
             choice(
                 ";",
                 field('body', $._function_body),
-                seq("=", choice(
-                    "0",
-                    "default",
-                    "delete",
-                )),
+                seq("=", $._keyword_function_assignment, ";"),
             ),
         ),
 
@@ -153,8 +163,85 @@ module.exports = grammar({
 
         parenthesized_function_declarator: $ => seq("(", $._function_declarator, ")"),
 
-
         _function_body: $ => $.block, // Add try body
+
+        _keyword_function_assignment: $ => choice(
+            $.abstract_function_assignment,
+            $.default_function_assignment,
+            $.delete_function_assignment,
+        ),
+
+        abstract_function_assignment: $ => "0",
+        default_function_assignment: $ => "default",
+        delete_function_assignment: $ => "delete",
+
+
+        constructor_declaration: $ => seq(
+            repeat($._attributes),
+            repeat($._declaration_modifier),
+            repeat($._attributes),
+            $._constructor_declarator,
+            $._parameters_with_modifiers,
+            optional($.trailing_return_type),
+            choice(
+                ";",
+                seq(
+                    optional(seq(
+                        ":",
+                        $.member_initializer,
+                        repeat(seq(",", $.member_initializer)),
+                    )),
+                    field('body', $._function_body),
+                ),
+                seq("=", $._keyword_function_assignment, ";"),
+            ),
+        ),
+        _constructor_declarator: $ => prec.left(seq(
+            repeat($._any_pointer_modifier),
+            choice(seq(optional($.scope), field("name", $.name)), field("declarator", $.parenthesized_constructor_declarator)),
+            repeat(choice(
+                $.function_type_modifier,
+                $.array_type_modifier,
+            )),
+        )),
+
+        member_initializer: $ => seq(
+            field("member", choice(
+                $.scoped_name,
+                $.template_name,
+                $.name,
+                $.decltype,
+            )),
+            choice(
+                seq("(", $._initializers, ")"),
+                $.initializer_list,
+            ),
+        ),
+
+        parenthesized_constructor_declarator: $ => seq("(", $._constructor_declarator, ")"),
+                
+        operator_declaration: $ => seq(
+            $._declaration_type_modifiers,
+            $._operator_declarator,
+            $._parameters_with_modifiers,
+            optional($.trailing_return_type),
+            choice(
+                ";",
+                field('body', $._function_body),
+                seq("=", $._keyword_function_assignment, ";"),
+            ),
+        ),
+
+        _operator_declarator: $ => prec.left(seq(
+            repeat($._any_pointer_modifier),
+            choice(seq(optional($.scope), field("name", $.operator_name)), field("declarator", $.parenthesized_operator_declarator)),
+            repeat(choice(
+                $.function_type_modifier,
+                $.array_type_modifier,
+            )),
+        )),
+
+        parenthesized_operator_declarator: $ => seq("(", $._operator_declarator, ")"),
 
         class_declaration: $ => seq(
             repeat($._attributes),
@@ -967,7 +1054,7 @@ module.exports = grammar({
         operator_name: $ => prec.left(seq(
             "operator",
             choice(
-                $.overloadable_operator,
+                $._overloadable_operator,
                 seq('""', alias($.name, $.literal_suffix)),
                 alias($._type, $.conversion_operator_type),
             ),
@@ -985,7 +1072,7 @@ module.exports = grammar({
 
         name: $ => $.identifier,
 
-        overloadable_operator: $ => prec.left(choice(
+        _overloadable_operator: $ => prec.left(choice(
             "new",
             "delete",
             seq("new", $._lbracket, $._rbracket),

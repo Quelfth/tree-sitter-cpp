@@ -2206,6 +2206,154 @@
     }
   },
   {
+    "type": "constructor_declaration",
+    "named": true,
+    "fields": {
+      "body": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "block",
+            "named": true
+          }
+        ]
+      },
+      "declarator": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "parenthesized_constructor_declarator",
+            "named": true
+          }
+        ]
+      },
+      "name": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "name",
+            "named": true
+          }
+        ]
+      },
+      "parameters": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "parameters",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "abstract_function_assignment",
+          "named": true
+        },
+        {
+          "type": "alignas_modifier",
+          "named": true
+        },
+        {
+          "type": "array_type_modifier",
+          "named": true
+        },
+        {
+          "type": "attribute_modifier",
+          "named": true
+        },
+        {
+          "type": "const_modifier",
+          "named": true
+        },
+        {
+          "type": "default_function_assignment",
+          "named": true
+        },
+        {
+          "type": "delete_function_assignment",
+          "named": true
+        },
+        {
+          "type": "explicit_modifier",
+          "named": true
+        },
+        {
+          "type": "extern_modifier",
+          "named": true
+        },
+        {
+          "type": "function_type_modifier",
+          "named": true
+        },
+        {
+          "type": "inline_modifier",
+          "named": true
+        },
+        {
+          "type": "member_initializer",
+          "named": true
+        },
+        {
+          "type": "mutable_modifier",
+          "named": true
+        },
+        {
+          "type": "pointer_modifier",
+          "named": true
+        },
+        {
+          "type": "pointer_to_member_modifier",
+          "named": true
+        },
+        {
+          "type": "reference_modifier",
+          "named": true
+        },
+        {
+          "type": "register_modifier",
+          "named": true
+        },
+        {
+          "type": "rvalue_reference_modifier",
+          "named": true
+        },
+        {
+          "type": "scope",
+          "named": true
+        },
+        {
+          "type": "static_modifer",
+          "named": true
+        },
+        {
+          "type": "thread_local_modifier",
+          "named": true
+        },
+        {
+          "type": "trailing_return_type",
+          "named": true
+        },
+        {
+          "type": "virtual_modifier",
+          "named": true
+        },
+        {
+          "type": "volatile_modifier",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "constructor_expression",
     "named": true,
     "fields": {},
@@ -2488,6 +2636,11 @@
     }
   },
   {
+    "type": "default_function_assignment",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "delete_expression",
     "named": true,
     "fields": {},
@@ -2637,6 +2790,11 @@
         }
       ]
     }
+  },
+  {
+    "type": "delete_function_assignment",
+    "named": true,
+    "fields": {}
   },
   {
     "type": "delimited_token",
@@ -3589,6 +3747,10 @@
       "required": false,
       "types": [
         {
+          "type": "abstract_function_assignment",
+          "named": true
+        },
+        {
           "type": "alignas_modifier",
           "named": true
         },
@@ -3606,6 +3768,14 @@
         },
         {
           "type": "decltype",
+          "named": true
+        },
+        {
+          "type": "default_function_assignment",
+          "named": true
+        },
+        {
+          "type": "delete_function_assignment",
           "named": true
         },
         {
@@ -5355,6 +5525,184 @@
     }
   },
   {
+    "type": "member_initializer",
+    "named": true,
+    "fields": {
+      "member": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "decltype",
+            "named": true
+          },
+          {
+            "type": "name",
+            "named": true
+          },
+          {
+            "type": "scoped_name",
+            "named": true
+          },
+          {
+            "type": "template_name",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "alignof_expression",
+          "named": true
+        },
+        {
+          "type": "assignment_expression",
+          "named": true
+        },
+        {
+          "type": "binary_expression",
+          "named": true
+        },
+        {
+          "type": "boolean",
+          "named": true
+        },
+        {
+          "type": "c_cast_expression",
+          "named": true
+        },
+        {
+          "type": "call_expression",
+          "named": true
+        },
+        {
+          "type": "cast_expression",
+          "named": true
+        },
+        {
+          "type": "character",
+          "named": true
+        },
+        {
+          "type": "conditional_expression",
+          "named": true
+        },
+        {
+          "type": "constructor_expression",
+          "named": true
+        },
+        {
+          "type": "delete_expression",
+          "named": true
+        },
+        {
+          "type": "destructor_name",
+          "named": true
+        },
+        {
+          "type": "float",
+          "named": true
+        },
+        {
+          "type": "index_expression",
+          "named": true
+        },
+        {
+          "type": "initializer_list",
+          "named": true
+        },
+        {
+          "type": "integer",
+          "named": true
+        },
+        {
+          "type": "lambda_expression",
+          "named": true
+        },
+        {
+          "type": "member_expression",
+          "named": true
+        },
+        {
+          "type": "name",
+          "named": true
+        },
+        {
+          "type": "new_expression",
+          "named": true
+        },
+        {
+          "type": "noexcept_expression",
+          "named": true
+        },
+        {
+          "type": "nullptr",
+          "named": true
+        },
+        {
+          "type": "operator_name",
+          "named": true
+        },
+        {
+          "type": "parenthesized_expression",
+          "named": true
+        },
+        {
+          "type": "post_unary_expression",
+          "named": true
+        },
+        {
+          "type": "pre_unary_expression",
+          "named": true
+        },
+        {
+          "type": "scoped_destructor_name",
+          "named": true
+        },
+        {
+          "type": "scoped_name",
+          "named": true
+        },
+        {
+          "type": "scoped_operator_name",
+          "named": true
+        },
+        {
+          "type": "sizeof_expression",
+          "named": true
+        },
+        {
+          "type": "sizeof_type_expression",
+          "named": true
+        },
+        {
+          "type": "sizeof_variadic_expression",
+          "named": true
+        },
+        {
+          "type": "string",
+          "named": true
+        },
+        {
+          "type": "template_name",
+          "named": true
+        },
+        {
+          "type": "template_operator_name",
+          "named": true
+        },
+        {
+          "type": "this",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "member_list",
     "named": true,
     "fields": {},
@@ -5364,6 +5712,10 @@
       "types": [
         {
           "type": "class_declaration",
+          "named": true
+        },
+        {
+          "type": "constructor_declaration",
           "named": true
         },
         {
@@ -5419,6 +5771,10 @@
           "named": true
         },
         {
+          "type": "operator_declaration",
+          "named": true
+        },
+        {
           "type": "pragma_directive",
           "named": true
         },
@@ -5436,6 +5792,10 @@
         },
         {
           "type": "variadic_function_macro_define_directive",
+          "named": true
+        },
+        {
+          "type": "visibility_declaration",
           "named": true
         }
       ]
@@ -5892,12 +6252,230 @@
     }
   },
   {
+    "type": "operator_declaration",
+    "named": true,
+    "fields": {
+      "body": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "block",
+            "named": true
+          }
+        ]
+      },
+      "declarator": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "parenthesized_operator_declarator",
+            "named": true
+          }
+        ]
+      },
+      "name": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "operator_name",
+            "named": true
+          }
+        ]
+      },
+      "parameters": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "parameters",
+            "named": true
+          }
+        ]
+      },
+      "type": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "const_type",
+            "named": true
+          },
+          {
+            "type": "decltype",
+            "named": true
+          },
+          {
+            "type": "long_type",
+            "named": true
+          },
+          {
+            "type": "name",
+            "named": true
+          },
+          {
+            "type": "primitive_type",
+            "named": true
+          },
+          {
+            "type": "scoped_name",
+            "named": true
+          },
+          {
+            "type": "short_type",
+            "named": true
+          },
+          {
+            "type": "signed_type",
+            "named": true
+          },
+          {
+            "type": "specified_type_name",
+            "named": true
+          },
+          {
+            "type": "template_name",
+            "named": true
+          },
+          {
+            "type": "unsigned_type",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "abstract_function_assignment",
+          "named": true
+        },
+        {
+          "type": "alignas_modifier",
+          "named": true
+        },
+        {
+          "type": "array_type_modifier",
+          "named": true
+        },
+        {
+          "type": "attribute_modifier",
+          "named": true
+        },
+        {
+          "type": "const_modifier",
+          "named": true
+        },
+        {
+          "type": "decltype",
+          "named": true
+        },
+        {
+          "type": "default_function_assignment",
+          "named": true
+        },
+        {
+          "type": "delete_function_assignment",
+          "named": true
+        },
+        {
+          "type": "explicit_modifier",
+          "named": true
+        },
+        {
+          "type": "extern_modifier",
+          "named": true
+        },
+        {
+          "type": "function_type_modifier",
+          "named": true
+        },
+        {
+          "type": "inline_modifier",
+          "named": true
+        },
+        {
+          "type": "mutable_modifier",
+          "named": true
+        },
+        {
+          "type": "name",
+          "named": true
+        },
+        {
+          "type": "pointer_modifier",
+          "named": true
+        },
+        {
+          "type": "pointer_to_member_modifier",
+          "named": true
+        },
+        {
+          "type": "primitive_type",
+          "named": true
+        },
+        {
+          "type": "primitive_type_modifier",
+          "named": true
+        },
+        {
+          "type": "reference_modifier",
+          "named": true
+        },
+        {
+          "type": "register_modifier",
+          "named": true
+        },
+        {
+          "type": "rvalue_reference_modifier",
+          "named": true
+        },
+        {
+          "type": "scope",
+          "named": true
+        },
+        {
+          "type": "scoped_name",
+          "named": true
+        },
+        {
+          "type": "specified_type_name",
+          "named": true
+        },
+        {
+          "type": "static_modifer",
+          "named": true
+        },
+        {
+          "type": "thread_local_modifier",
+          "named": true
+        },
+        {
+          "type": "trailing_return_type",
+          "named": true
+        },
+        {
+          "type": "virtual_modifier",
+          "named": true
+        },
+        {
+          "type": "volatile_modifier",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "operator_name",
     "named": true,
     "fields": {},
     "children": {
       "multiple": false,
-      "required": true,
+      "required": false,
       "types": [
         {
           "type": "conversion_operator_type",
@@ -5906,21 +6484,12 @@
         {
           "type": "literal_suffix",
           "named": true
-        },
-        {
-          "type": "overloadable_operator",
-          "named": true
         }
       ]
     }
   },
   {
     "type": "operator_token",
-    "named": true,
-    "fields": {}
-  },
-  {
-    "type": "overloadable_operator",
     "named": true,
     "fields": {}
   },
@@ -6114,6 +6683,66 @@
     }
   },
   {
+    "type": "parenthesized_constructor_declarator",
+    "named": true,
+    "fields": {
+      "declarator": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "parenthesized_constructor_declarator",
+            "named": true
+          }
+        ]
+      },
+      "name": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "name",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "array_type_modifier",
+          "named": true
+        },
+        {
+          "type": "function_type_modifier",
+          "named": true
+        },
+        {
+          "type": "pointer_modifier",
+          "named": true
+        },
+        {
+          "type": "pointer_to_member_modifier",
+          "named": true
+        },
+        {
+          "type": "reference_modifier",
+          "named": true
+        },
+        {
+          "type": "rvalue_reference_modifier",
+          "named": true
+        },
+        {
+          "type": "scope",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "parenthesized_expression",
     "named": true,
     "fields": {},
@@ -6284,6 +6913,66 @@
         "types": [
           {
             "type": "name",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "array_type_modifier",
+          "named": true
+        },
+        {
+          "type": "function_type_modifier",
+          "named": true
+        },
+        {
+          "type": "pointer_modifier",
+          "named": true
+        },
+        {
+          "type": "pointer_to_member_modifier",
+          "named": true
+        },
+        {
+          "type": "reference_modifier",
+          "named": true
+        },
+        {
+          "type": "rvalue_reference_modifier",
+          "named": true
+        },
+        {
+          "type": "scope",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "parenthesized_operator_declarator",
+    "named": true,
+    "fields": {
+      "declarator": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "parenthesized_operator_declarator",
+            "named": true
+          }
+        ]
+      },
+      "name": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "operator_name",
             "named": true
           }
         ]
@@ -8548,6 +9237,10 @@
           "named": true
         },
         {
+          "type": "operator_declaration",
+          "named": true
+        },
+        {
           "type": "pragma_directive",
           "named": true
         },
@@ -9435,6 +10128,21 @@
     "fields": {}
   },
   {
+    "type": "visibility_declaration",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "visibility",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "volatile_modifier",
     "named": true,
     "fields": {}
@@ -9831,10 +10539,6 @@
     "named": false
   },
   {
-    "type": "0",
-    "named": false
-  },
-  {
     "type": ":",
     "named": false
   },
@@ -9917,6 +10621,10 @@
   {
     "type": "^=",
     "named": false
+  },
+  {
+    "type": "abstract_function_assignment",
+    "named": true
   },
   {
     "type": "alignas",
@@ -10053,11 +10761,11 @@
   },
   {
     "type": "float",
-    "named": false
+    "named": true
   },
   {
     "type": "float",
-    "named": true
+    "named": false
   },
   {
     "type": "float_token",
