@@ -72,7 +72,8 @@ module.exports = grammar({
         [$._type_root, $.pointer_to_member_modifier],
         [$._type_root, $.pointer_to_member_modifier, $.scoped_name, $.scoped_operator_name, $.scoped_destructor_name],
         [$._type_root, $._constructor_declarator],
-        [$.constructor_declaration],
+        [$.constructor_declaration, $.destructor_declaration],
+        [$.destructor_declaration],
         [$.template_operator_name, $._any_name],
         [$.template_name, $._any_name],
         [$.template_name, $._any_name, $.destructor_name],
@@ -81,6 +82,8 @@ module.exports = grammar({
         [$._type_root, $.template_name],
         [$.class_declaration, $.type_specifier],
         [$.class_declaration],
+        [$.enum_declaration, $.type_specifier],
+        [$.enum_declaration],
         [$.type_parameter, $.type_specifier],
         [$.c_cast_expression, $.sizeof_type_expression],
         [$.parameter, $.c_cast_expression],
@@ -106,6 +109,7 @@ module.exports = grammar({
 
         _declaration: $ => choice(
             $.class_declaration,
+            $.enum_declaration,
             $.function_declaration,
             $.operator_declaration,
             $.empty_declaration,
@@ -134,6 +138,7 @@ module.exports = grammar({
 
         _member_declaration: $ => choice(
             $.constructor_declaration,
+            $.destructor_declaration,
             $.visibility_declaration,
             $._declaration,
         ),
@@ -243,6 +248,31 @@ module.exports = grammar({
 
         parenthesized_operator_declarator: $ => seq("(", $._operator_declarator, ")"),
 
+        destructor_declaration: $ => seq(
+            repeat($._attributes),
+            repeat($._declaration_modifier),
+            repeat($._attributes),
+            $._destructor_declarator,
+            $._parameters_with_modifiers,
+            optional($.trailing_return_type),
+            choice(
+                ";",
+                field('body', $._function_body),
+                seq("=", $._keyword_function_assignment, ";"),
+            ),
+        ),
+        
+        _destructor_declarator: $ => prec.left(seq(
+            repeat($._any_pointer_modifier),
+            choice(seq(optional($.scope), field("name", $.destructor_name)), field("declarator", $.parenthesized_destructor_declarator)),
+            repeat(choice(
+                $.function_type_modifier,
+                $.array_type_modifier,
+            )),
+        )),
+        
+        parenthesized_destructor_declarator: $ => seq("(", $._destructor_declarator, ")"),
+
         class_declaration: $ => seq(
             repeat($._attributes),
             optional($.template_modifier),
@@ -285,6 +315,37 @@ module.exports = grammar({
             $._lbrace,
             repeat($._member_declaration),
             $._rbrace,
+        ),
+
+        enum_declaration: $ => seq(
+            repeat($._attributes),
+            optional($.template_modifier),
+            repeat($._attributes),
+            "enum",
+            optional(choice("class", "struct")),
+            repeat($._attributes),
+            optional(field("scope", $.scope)),
+            field("name", $.name),
+            optional(seq(
+                ":",
+                field("base", $._type_root),
+            )),
+            $._lbrace,
+            optional(seq(
+                $.enumerator_declaration,
+                repeat(seq(",", $.enumerator_declaration)),
+                optional(","),
+            )),
+            $._rbrace,
+            ";",
+        ),
+
+        enumerator_declaration: $ => seq(
+            $.name,
+            optional(seq(
+                "=",
+                field("discriminant", $._expr),
+            )),
         ),
 
         variable_declaration: $ => seq(
