@@ -3629,16 +3629,6 @@
     "type": "for_statement",
     "named": true,
     "fields": {
-      "declarator": {
-        "multiple": false,
-        "required": false,
-        "types": [
-          {
-            "type": "parenthesized_variable_declarator",
-            "named": true
-          }
-        ]
-      },
       "name": {
         "multiple": false,
         "required": false,
@@ -6909,16 +6899,6 @@
     "type": "parameter",
     "named": true,
     "fields": {
-      "declarator": {
-        "multiple": false,
-        "required": false,
-        "types": [
-          {
-            "type": "parenthesized_variable_declarator",
-            "named": true
-          }
-        ]
-      },
       "name": {
         "multiple": false,
         "required": false,
@@ -7462,58 +7442,6 @@
           "type": "function_type_modifier",
           "named": true
         },
-        {
-          "type": "pointer_modifier",
-          "named": true
-        },
-        {
-          "type": "pointer_to_member_modifier",
-          "named": true
-        },
-        {
-          "type": "reference_modifier",
-          "named": true
-        },
-        {
-          "type": "rvalue_reference_modifier",
-          "named": true
-        },
-        {
-          "type": "scope",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "parenthesized_variable_declarator",
-    "named": true,
-    "fields": {
-      "declarator": {
-        "multiple": false,
-        "required": false,
-        "types": [
-          {
-            "type": "parenthesized_variable_declarator",
-            "named": true
-          }
-        ]
-      },
-      "name": {
-        "multiple": false,
-        "required": false,
-        "types": [
-          {
-            "type": "name",
-            "named": true
-          }
-        ]
-      }
-    },
-    "children": {
-      "multiple": true,
-      "required": false,
-      "types": [
         {
           "type": "pointer_modifier",
           "named": true
@@ -9743,16 +9671,6 @@
     "type": "try_block",
     "named": true,
     "fields": {
-      "declarator": {
-        "multiple": true,
-        "required": false,
-        "types": [
-          {
-            "type": "parenthesized_variable_declarator",
-            "named": true
-          }
-        ]
-      },
       "name": {
         "multiple": true,
         "required": false,
@@ -10236,19 +10154,9 @@
     "type": "variable_declaration",
     "named": true,
     "fields": {
-      "declarator": {
-        "multiple": true,
-        "required": false,
-        "types": [
-          {
-            "type": "parenthesized_variable_declarator",
-            "named": true
-          }
-        ]
-      },
       "name": {
         "multiple": true,
-        "required": false,
+        "required": true,
         "types": [
           {
             "type": "name",
@@ -11237,11 +11145,11 @@
   },
   {
     "type": "float",
-    "named": false
+    "named": true
   },
   {
     "type": "float",
-    "named": true
+    "named": false
   },
   {
     "type": "float_token",

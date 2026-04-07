@@ -363,10 +363,10 @@ module.exports = grammar({
 
         _variable_declarator: $ => seq(
             repeat($._any_pointer_modifier),
-            choice(seq(optional($.scope), field("name", $.name)), field("declarator", $.parenthesized_variable_declarator)),
+            choice(seq(optional($.scope), field("name", $.name))/*, field("declarator", $.parenthesized_variable_declarator)*/),
         ),
 
-        parenthesized_variable_declarator: $ => seq("(", $._variable_declarator, ")"),
+        //parenthesized_variable_declarator: $ => seq("(", $._variable_declarator, ")"),
 
         _variable_initializer: $ => choice(
             seq("=", $._initializer),

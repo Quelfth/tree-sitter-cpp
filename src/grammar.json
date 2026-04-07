@@ -1491,33 +1491,8 @@
                   }
                 }
               ]
-            },
-            {
-              "type": "FIELD",
-              "name": "declarator",
-              "content": {
-                "type": "SYMBOL",
-                "name": "parenthesized_variable_declarator"
-              }
             }
           ]
-        }
-      ]
-    },
-    "parenthesized_variable_declarator": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "STRING",
-          "value": "("
-        },
-        {
-          "type": "SYMBOL",
-          "name": "_variable_declarator"
-        },
-        {
-          "type": "STRING",
-          "value": ")"
         }
       ]
     },
