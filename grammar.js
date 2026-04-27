@@ -21,6 +21,8 @@ module.exports = grammar({
         $._start_of_directive,
         $._newline,
         $._end_of_directive,
+        $._line_comment_content,
+        $._block_comment_content,
     ],
 
     word: $ => $.identifier,
@@ -106,14 +108,12 @@ module.exports = grammar({
             $._declaration,
         ),
 
-        comment: $ => token(choice(
-            seq('//', /(\\+(.|\r?\n)|[^\\\n])*/),
-            seq(
-                '/*',
-                /[^*]*\*+([^/*][^*]*\*+)*/,
-                '/',
-            ),
-        )),
+        line_continuation: $ => seq('\\', /\r?\n/),
+
+        comment: $ => choice(
+            seq('//', alias($._line_comment_content, $.comment_content)),
+            seq('/*', alias($._block_comment_content, $.comment_content), '*/'),
+        ),
 
         _declaration: $ => choice(
             $.class_declaration,
@@ -1071,13 +1071,20 @@ module.exports = grammar({
         escape_sequence: $ => choice(
             '\\"',
             '\\\\',
+            '\\n',
+            '\\r',
+            '\\t',
+            '\\v',
+            '\\f',
+            '\\a',
+            '\\b',
         ),
         character: $ => seq(
             "'",
-            $.character_content,
+            choice($.character_content, $.escape_sequence),
             "'",
         ),
-        character_content: $ => /[^']/,
+        character_content: $ => /[^'\\]/,
         boolean: $ => choice('true', 'false'),
         nullptr: $ => 'nullptr',
 
@@ -1385,6 +1392,6 @@ module.exports = grammar({
             '->',
         ),
 
-        line_continuation: $ => seq('\\', /[ \t\v\f]*\r?\n/),
+        //line_continuation: $ => seq('\\', /\r?\n/),
     }
 });

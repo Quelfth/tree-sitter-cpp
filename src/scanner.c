@@ -5,6 +5,8 @@ enum TokenType {
     START_OF_DIRECTIVE,
     NEWLINE,
     END_OF_DIRECTIVE,
+    LINE_COMMENT_CONTENT,
+    BLOCK_COMMENT_CONTENT,
 };
 
 void* tree_sitter_cpp_external_scanner_create() {
@@ -50,21 +52,58 @@ bool tree_sitter_cpp_external_scanner_scan(
         *is_directive = true;
         return true;
     }
+    while(is_whitespace(lexer->lookahead)) {
+        lexer->advance(lexer, true);
+    }
 
-    if (valid_symbols[NEWLINE] || valid_symbols[END_OF_DIRECTIVE]) {
-        while(is_whitespace(lexer->lookahead)) {
-            lexer->advance(lexer, true);
-        }
-        if (lexer->lookahead == '\n') {
-            if (*is_directive) {
-                lexer->result_symbol = END_OF_DIRECTIVE;
-                *is_directive = false;
-            } else {
-                lexer->result_symbol = NEWLINE;
+    if (valid_symbols[LINE_COMMENT_CONTENT]) {
+        lexer->result_symbol = LINE_COMMENT_CONTENT;
+        while(!lexer->eof(lexer)) {
+            if(lexer->lookahead == '\n') {
+                return true;
+            }
+            if(is_whitespace(lexer->lookahead)) {
+                lexer->advance(lexer, false);
+                continue;
+            }
+            if(lexer->lookahead == '\\') {
+                lexer->advance(lexer, false);
+                continue;
             }
             lexer->advance(lexer, false);
-            return true;
+            lexer->mark_end(lexer);
         }
+        return true;
+    }
+
+    if (valid_symbols[BLOCK_COMMENT_CONTENT]) {
+        lexer->result_symbol = BLOCK_COMMENT_CONTENT;
+        bool found_star = false;
+        while(!lexer->eof(lexer)) {
+            if (found_star && lexer->lookahead == '/') {
+                return true;
+            }
+            found_star = lexer->lookahead == '*';
+            lexer->advance(lexer, false);
+            if(!found_star) {
+                lexer->mark_end(lexer);
+            }
+        }
+        return true;
+    }
+
+    if ((valid_symbols[NEWLINE] || valid_symbols[END_OF_DIRECTIVE]) && lexer->lookahead == '\n') {
+        if (*is_directive) {
+            if (!valid_symbols[END_OF_DIRECTIVE]) {
+                return false;
+            }
+            lexer->result_symbol = END_OF_DIRECTIVE;
+            *is_directive = false;
+        } else {
+            lexer->result_symbol = NEWLINE;
+        }
+        lexer->advance(lexer, false);
+        return true;
     }
 
     return false;
