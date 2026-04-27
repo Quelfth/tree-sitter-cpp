@@ -7522,10 +7522,6 @@
         {
           "type": "SYMBOL",
           "name": "preprocessor_operator_token"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "line_continuation"
         }
       ]
     },
@@ -7747,11 +7743,17 @@
       ]
     },
     "line_continuation": {
-      "type": "IMMEDIATE_TOKEN",
-      "content": {
-        "type": "STRING",
-        "value": "\\s*\r?\n"
-      }
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "\\"
+        },
+        {
+          "type": "PATTERN",
+          "value": "[ \\t\\v\\f]*\\r?\\n"
+        }
+      ]
     }
   },
   "extras": [
@@ -7762,6 +7764,10 @@
     {
       "type": "SYMBOL",
       "name": "_newline"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "line_continuation"
     },
     {
       "type": "SYMBOL",

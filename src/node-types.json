@@ -4288,10 +4288,6 @@
           "named": true
         },
         {
-          "type": "line_continuation",
-          "named": true
-        },
-        {
           "type": "preprocessor_operator_token",
           "named": true
         },
@@ -5668,6 +5664,12 @@
     }
   },
   {
+    "type": "line_continuation",
+    "named": true,
+    "extra": true,
+    "fields": {}
+  },
+  {
     "type": "literal_suffix",
     "named": true,
     "fields": {},
@@ -6610,10 +6612,6 @@
         },
         {
           "type": "integer",
-          "named": true
-        },
-        {
-          "type": "line_continuation",
           "named": true
         },
         {
@@ -7824,10 +7822,6 @@
         },
         {
           "type": "integer",
-          "named": true
-        },
-        {
-          "type": "line_continuation",
           "named": true
         },
         {
@@ -10983,6 +10977,10 @@
     "named": false
   },
   {
+    "type": "\\",
+    "named": false
+  },
+  {
     "type": "\\\"",
     "named": false
   },
@@ -11141,11 +11139,11 @@
   },
   {
     "type": "float",
-    "named": true
+    "named": false
   },
   {
     "type": "float",
-    "named": false
+    "named": true
   },
   {
     "type": "float_token",
@@ -11197,10 +11195,6 @@
   },
   {
     "type": "integer_token",
-    "named": true
-  },
-  {
-    "type": "line_continuation",
     "named": true
   },
   {

@@ -13,6 +13,7 @@ module.exports = grammar({
     extras: $ => [
         /[ \t\v\f]/,
         $._newline,
+        $.line_continuation,
         $.comment,
     ],
 
@@ -1326,7 +1327,6 @@ module.exports = grammar({
             $.character,
             $.string,
             $.preprocessor_operator_token,
-            $.line_continuation,
         ),
 
         preprocessor_operator_token: $ => choice(
@@ -1385,6 +1385,6 @@ module.exports = grammar({
             '->',
         ),
 
-        line_continuation: $ => token.immediate('\\\s*\r?\n'),
+        line_continuation: $ => seq('\\', /[ \t\v\f]*\r?\n/),
     }
 });
