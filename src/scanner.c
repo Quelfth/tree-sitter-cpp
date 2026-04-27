@@ -55,6 +55,7 @@ bool tree_sitter_cpp_external_scanner_scan(
             } else {
                 lexer->result_symbol = NEWLINE;
             }
+            lexer->advance(lexer, false);
             return true;
         }
     }
