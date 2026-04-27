@@ -35,6 +35,10 @@ void tree_sitter_cpp_external_scanner_deserialize(
     *(bool*) payload = buffer[0];
 }
 
+static inline bool is_whitespace(int character) {
+    return character == ' ' || character == '\t' || character == '\v' || character == '\f';
+}
+
 bool tree_sitter_cpp_external_scanner_scan(
     void* payload,
     TSLexer* lexer,
@@ -48,6 +52,9 @@ bool tree_sitter_cpp_external_scanner_scan(
     }
 
     if (valid_symbols[NEWLINE] || valid_symbols[END_OF_DIRECTIVE]) {
+        while(is_whitespace(lexer->lookahead)) {
+            lexer->advance(lexer, true);
+        }
         if (lexer->lookahead == '\n') {
             if (*is_directive) {
                 lexer->result_symbol = END_OF_DIRECTIVE;

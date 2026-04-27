@@ -891,7 +891,7 @@ module.exports = grammar({
 
         _declaration_modifier: $ => choice(
             $.register_modifier,
-            $.static_modifer,
+            $.static_modifier,
             $.thread_local_modifier,
             $.extern_modifier,
             $.mutable_modifier,
@@ -901,7 +901,7 @@ module.exports = grammar({
         ),
 
         register_modifier: $ => "register",
-        static_modifer: $ => "static",
+        static_modifier: $ => "static",
         thread_local_modifier: $ => "thread_local",
         extern_modifier: $ => "extern",
         mutable_modifier: $ => "mutable",

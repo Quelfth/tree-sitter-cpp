@@ -2331,7 +2331,7 @@
           "named": true
         },
         {
-          "type": "static_modifer",
+          "type": "static_modifier",
           "named": true
         },
         {
@@ -2957,7 +2957,7 @@
           "named": true
         },
         {
-          "type": "static_modifer",
+          "type": "static_modifier",
           "named": true
         },
         {
@@ -3979,7 +3979,7 @@
           "named": true
         },
         {
-          "type": "static_modifer",
+          "type": "static_modifier",
           "named": true
         },
         {
@@ -4237,7 +4237,7 @@
           "named": true
         },
         {
-          "type": "static_modifer",
+          "type": "static_modifier",
           "named": true
         },
         {
@@ -6849,7 +6849,7 @@
           "named": true
         },
         {
-          "type": "static_modifer",
+          "type": "static_modifier",
           "named": true
         },
         {
@@ -10416,7 +10416,7 @@
           "named": true
         },
         {
-          "type": "static_modifer",
+          "type": "static_modifier",
           "named": true
         },
         {
@@ -11276,7 +11276,7 @@
     "named": false
   },
   {
-    "type": "static_modifer",
+    "type": "static_modifier",
     "named": true
   },
   {
