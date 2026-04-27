@@ -11,8 +11,15 @@ module.exports = grammar({
     name: "cpp",
 
     extras: $ => [
-        /\s/,
+        /[ \t\v\f]/,
+        $._newline,
         $.comment,
+    ],
+
+    externals: $ => [
+        $._start_of_directive,
+        $._newline,
+        $._end_of_directive,
     ],
 
     word: $ => $.identifier,
@@ -1218,23 +1225,23 @@ module.exports = grammar({
             $.pragma_directive,
         ),
 
-        if_directive: $ => seq($._hash, 'if', $._expr, token.immediate('\r?\n')),
-        ifdef_directive: $ => seq($._hash, 'ifdef', $.name, token.immediate('\r?\n')),
-        ifndef_directive: $ => seq($._hash, 'ifndef', $.name, token.immediate('\r?\n')),
+        if_directive: $ => seq($._hash, 'if', $._start_of_directive, $._expr, $._end_of_directive),
+        ifdef_directive: $ => seq($._hash, 'ifdef', $._start_of_directive, $.name, $._end_of_directive),
+        ifndef_directive: $ => seq($._hash, 'ifndef', $._start_of_directive, $.name, $._end_of_directive),
 
-        elif_directive: $ => seq($._hash, 'elif', $._expr, token.immediate('\r?\n')),
-        elifdef_directive: $ => seq($._hash, 'elifdef', $.name, token.immediate('\r?\n')),
-        elifndef_directive: $ => seq($._hash, 'elifndef', $.name, token.immediate('\r?\n')),
+        elif_directive: $ => seq($._hash, 'elif', $._start_of_directive, $._expr, $._end_of_directive),
+        elifdef_directive: $ => seq($._hash, 'elifdef', $._start_of_directive, $.name, $._end_of_directive),
+        elifndef_directive: $ => seq($._hash, 'elifndef', $._start_of_directive, $.name, $._end_of_directive),
 
-        else_directive: $ => seq($._hash, 'else', token.immediate('\r?\n')),
+        else_directive: $ => seq($._hash, 'else', $._start_of_directive, $._end_of_directive),
 
-        endif_directive: $ => seq($._hash, 'endif', token.immediate('\r?\n')),
+        endif_directive: $ => seq($._hash, 'endif', $._start_of_directive, $._end_of_directive),
 
         include_directive: $ => seq(
             $._hash,
-            "include",
+            "include", $._start_of_directive,
             $.include_path,
-            "\r?\n",
+            $._end_of_directive,
         ),
 
         include_path: $ => choice(
@@ -1244,42 +1251,42 @@ module.exports = grammar({
 
         object_macro_define_directive: $ => seq(
             $._hash,
-            "define",
+            "define", $._start_of_directive,
             field("name", $.name),
             optional(field('body', $.object_macro_body)),
-            token.immediate("\r?\n"),
+            $._end_of_directive,
         ),
 
         function_macro_define_directive: $ => seq(
             $._hash,
-            "define",
+            "define", $._start_of_directive,
             field("name", $.name),
             field("parameters", $.macro_parameters),
             optional(field('body', $.function_macro_body)),
-            token.immediate("\r?\n"),
+            $._end_of_directive,
         ),
 
         variadic_function_macro_define_directive: $ => seq(
             $._hash,
-            "define",
+            "define", $._start_of_directive,
             field("name", $.name),
             field("parameters", $.variadic_macro_parameters),
             optional(field('body', $.function_macro_body)),
-            token.immediate("\r?\n"),
+            $._end_of_directive,
         ),
 
         undef_directive: $ => seq(
             $._hash,
-            'undef',
+            'undef', $._start_of_directive,
             field("name", $.name),
-            token.immediate("\r?\n"),
+            $._end_of_directive,
         ),
 
         pragma_directive: $ => seq(
             $._hash,
-            'pragma',
+            'pragma', $._start_of_directive,
             repeat($._preproc_token),
-            token.immediate("\r?\n"),
+            $._end_of_directive,
         ),
 
         macro_parameters: $ => seq(
