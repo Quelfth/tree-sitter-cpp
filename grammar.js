@@ -1299,7 +1299,7 @@ module.exports = grammar({
 
         macro_parameters: $ => seq(
             token.immediate('('),
-            $.macro_parameter, repeat(seq(',', $.macro_parameter)),
+            optional(seq($.macro_parameter, repeat(seq(',', $.macro_parameter)))),
             ')',
         ),
 
